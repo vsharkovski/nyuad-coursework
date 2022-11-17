@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Mr. Bear's website</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="interaction.js"></script>
+  </head>
+  <body>
+    <div class="navbar bg-primary text-secondary">
+      <div class="nav-item nav-logo-container">
+        <img
+          class="nav-logo hover-pointer"
+          src="assets/teddy-bear-logo-128x128.png"
+        />
+      </div>
+      <div class="nav-item hide-beyond-md ms-sm-auto">
+        <a href="#home" class="nav-link">Home</a>
+      </div>
+      <div class="nav-item hide-beyond-md">
+        <a href="#about" class="nav-link">About</a>
+      </div>
+      <div class="nav-item hide-beyond-md">
+        <a href="#interview" class="nav-link">Interview</a>
+      </div>
+      <div class="nav-item hide-beyond-md">
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+    </div>
+    <div class="main-column mx-auto">
+      <div id="home" class="section">
+        <h1 class="text-center">Mr. Bear's Personal Website</h1>
+        <p class="text-justify">
+          Hello there! I'm Mr. Bear and this is my website. Here you can find
+          some info about myself, my contact information, as well as some recent
+          news about the things happening in my life. I hope you enjoy!
+        </p>
+      </div>
+      <div id="about" class="section">
+        <h2 class="text-center">About me</h2>
+        <div class="grid">
+          <div class="text-justify">
+            <p>
+              I'm a bear. A stuffed toy teddy bear, that is! Not a real bear. I
+              would imagine that if I were a real bear, I would be a grizzly.
+              Grizzly bears are cool and huge and powerful, and they eat
+              whatever they like.
+            </p>
+            <p>
+              I don't really remember where I come from or how I came into this
+              world. All I know is that I've been living in NYUAD for as long as
+              I remember.
+            </p>
+            <p>
+              My most recent hobby is studying how to create websites with HTML,
+              CSS and JavaScript. I hope you like the effects I added!
+            </p>
+          </div>
+          <div>
+            <img
+              class="img-fluid border-radius-3 shadow-1 hover-pointer main-image"
+              src="assets/bear-wave-400x400.png"
+            />
+          </div>
+        </div>
+      </div>
+      <div id="interview" class="section">
+        <h2 class="text-center">Recent interview</h2>
+        <div class="grid grid-col-2">
+          <div class="video-portrait shadow-1">
+            <video controls>
+              <source
+                src="assets/30MFF_Group2_BearInterview.mp4"
+                type="video/mp4"
+              />
+              Your browser does not support video.
+            </video>
+          </div>
+          <div class="text-justify">
+            <p>
+              Recently some NYUAD students realized that I am not a regular old
+              teddy bear, and that I can move and talk. So they decided to
+              interview me and ask me some questions.
+            </p>
+            <p>
+              Here is the video they recorded. I hope you like it! If you have
+              any thoughts or questions you want to share, check out the
+              <em>contact</em> below for ways to reach me.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div id="contact" class="section">
+        <h2 class="text-center">Contact me</h2>
+        <p class="text-justify">
+          Here is my contact information. Feel free to reach out to me about
+          anything, whether it is thoughts, questions, or if you just want to
+          hang out.
+        </p>
+        <ul>
+          <li>
+            Click <a href="mailto: mrbeartheteddybear@nyu.edu">here</a> to send
+            me an email.
+          </li>
+        </ul>
+      </div>
+      <!-- prettier-ignore -->
+      <div class="mx-auto text-center text-small">
+        <span>
+          Psst! If you want a surprise, click the rotating teddy bear three
+          times, then click on the picture in the 'About me' section, and finally
+          click
+        </span>
+        <span class="bts-trigger hover-pointer"><u>here</u></span>.
+        <span>Be quick!</span>
+      </div>
+      <div id="behind-the-scenes" class="section visibility-hidden">
+        <h2 class="text-center">Behind the scenes</h2>
+        <p class="text-justify">
+          This website was created as part of the 30 Minute Film Festival. Our
+          'movie' was the interview, for which we only had thirty minutes to
+          record and edit. Then we had to create a web page where we would
+          convey a story. We hope you liked it!
+        </p>
+        <h4 class="text-center">Credits</h4>
+        <ul>
+          <li>Video created by: Basil, Javeria, and Vladimir</li>
+          <li>Website created by: Vladimir</li>
+        </ul>
+        <div class="d-flex">
+          <p class="ms-auto me-3 text-center">Goodbye for now!</p>
+          <div>
+            <a href="https://github.com/vsharkovski">
+              <img
+                class="img-small border-radius-2 shadow-1"
+                src="assets/bear-wave-3-400x400.png"
+              />
+            </a>
+          </div>
+        </div>
+        <p>
+          For more information, please visit the
+          <a href="https://www.commlab.nyuadim.com/">Communications Lab</a>
+          course website.
+        </p>
+      </div>
+    </div>
+    <div class="footer"></div>
+  </body>
+</html>

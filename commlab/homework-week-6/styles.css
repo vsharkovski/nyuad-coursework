@@ -1,0 +1,74 @@
+body {
+  background-color: black;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+body > * {
+  position: fixed;
+}
+
+.aspect-1-1 {
+  aspect-ratio: 1 / 1;
+}
+
+.h-5 {
+  height: 0.5%;
+}
+
+.h-1 {
+  height: 1%;
+}
+
+.h-2 {
+  height: 2%;
+}
+
+.h-5 {
+  height: 5%;
+}
+
+.h-10 {
+  height: 10%;
+}
+
+.h-30 {
+  height: 30%;
+}
+
+.planet {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.dialogue {
+  background-color: white;
+  color: black;
+  border-radius: 35%;
+  padding: 1rem;
+  text-align: center;
+}
+
+.dialogue-big {
+  padding: 2rem;
+  font-size: 2rem;
+}
+
+.rocket {
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+}
+
+.ufo {
+  height: 5%;
+}
+
+.star {
+  background-color: rgb(255, 255, 108);
+  opacity: 0.8;
+  border-radius: 50%;
+  z-index: -1;
+}
