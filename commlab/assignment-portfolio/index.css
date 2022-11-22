@@ -92,6 +92,7 @@ main {
 }
 
 #nav-links > .nav-link > img {
+  width: auto;
   height: calc(50vh / var(--num-nav-items) - 5vh);
   aspect-ratio: 1.8 / 1;
   border-radius: 0.5rem;
@@ -104,8 +105,8 @@ main {
     flex-direction: row;
   }
   #nav-links > .nav-link > img {
-    height: auto;
     width: calc(100vw / var(--num-nav-items) - 5vw);
+    height: auto;
   }
 }
 
