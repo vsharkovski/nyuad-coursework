@@ -17,12 +17,30 @@ const interestsData = [
 ];
 
 const projectsData = [
-  new ColumnData("#journeys", "assets/images/pia23444-1600.jpg"),
-  new ColumnData("#cp-repo", "assets/images/pia23444-1600.jpg"),
-  new ColumnData("#commlab-30mmf", "assets/images/pia23444-1600.jpg"),
-  new ColumnData("#commlab-comic", "assets/images/pia23444-1600.jpg"),
-  new ColumnData("#commlab-sound", "assets/images/pia23444-1600.jpg"),
-  new ColumnData("#commlab-video", "assets/images/pia23444-1600.jpg"),
+  new ColumnData(
+    "https://github.com/vsharkovski/Journeys",
+    "assets/images/projects/journeys.png"
+  ),
+  new ColumnData(
+    "https://github.com/vsharkovski/Competitive-Programming",
+    "assets/images/projects/competitive-programming-repo.png"
+  ),
+  new ColumnData(
+    "https://vsharkovski.github.io/nyuad-coursework/commlab/assignment-30mmf/",
+    "assets/images/projects/commlab-30mmf.png"
+  ),
+  new ColumnData(
+    "https://vsharkovski.github.io/nyuad-coursework/commlab/assignment-comic/",
+    "assets/images/projects/commlab-comic.png"
+  ),
+  new ColumnData(
+    "https://vsharkovski.github.io/nyuad-coursework/commlab/assignment-sound/",
+    "assets/images/pia23444-1600.jpg"
+  ),
+  new ColumnData(
+    "https://vsharkovski.github.io/nyuad-coursework/commlab/assignment-video/",
+    "assets/images/pia23444-1600.jpg"
+  ),
 ];
 
 const addToColumn = (column, data) => {
