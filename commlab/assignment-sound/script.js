@@ -10,10 +10,20 @@ Format:
 - time moment at which to show the image (in seconds)
 */
 const pictures = [
-  ["assets/images/temp-1.png", 0],
-  ["assets/images/temp-2.png", 30],
-  ["assets/images/temp-3.png", 60],
-  ["assets/images/temp-4.png", 90],
+  ["assets/images/morning1.jpg", 0],
+  ["assets/images/brush1.jpg", 10],
+  ["assets/images/cereal.jpg", 22],
+  ["assets/images/walk.jpg", 40],
+  ["assets/images/dining.jpg", 50],
+  ["assets/images/class.jpg", 65],
+  ["assets/images/door.jpg", 82],
+  ["assets/images/study.jpg", 90],
+  ["assets/images/store.jpg", 107],
+  ["assets/images/pingpong.jpg", 122],
+  ["assets/images/mkp.jpg", 135],
+  ["assets/images/basketball.jpg", 142],
+  ["assets/images/dark.jpg", 155],
+  ["assets/images/night.jpg", 164],
 ];
 
 // Add the pictures to the HTML.
