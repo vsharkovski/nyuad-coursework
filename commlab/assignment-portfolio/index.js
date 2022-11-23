@@ -35,11 +35,11 @@ const projectsData = [
   ),
   new ColumnData(
     "https://vsharkovski.github.io/nyuad-coursework/commlab/assignment-sound/",
-    "assets/images/pia23444-1600.jpg"
+    "assets/images/projects/commlab-sound.png"
   ),
   new ColumnData(
     "https://vsharkovski.github.io/nyuad-coursework/commlab/assignment-video/",
-    "assets/images/pia23444-1600.jpg"
+    "assets/images/projects/commlab-video.png"
   ),
 ];
 
