@@ -1,6 +1,25 @@
-const toggleNav = () => {
-  document.body.dataset.nav =
-    document.body.dataset.nav === "false" ? "true" : "false";
+const setFocus = (focus, item) => {
+  const ds = document.body.dataset;
+  if (focus === "main") {
+    // pass
+  } else if (focus === "nav") {
+    // pass
+  } else if (focus === "item") {
+    // show the item
+  } else {
+    console.error("Invalid focus value");
+    return;
+  }
+  ds.focus = focus;
+};
+
+const onNavButtonClick = () => {
+  const ds = document.body.dataset;
+  if (ds.focus === "main") {
+    setFocus("nav");
+  } else {
+    setFocus("main");
+  }
 };
 
 class ColumnData {

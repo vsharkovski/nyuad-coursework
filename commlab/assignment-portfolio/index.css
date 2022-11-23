@@ -113,22 +113,30 @@ main {
   }
 }
 
-body:not([data-nav="true"]) > #nav-toggle:hover > .open {
+body[data-focus="main"] > #nav-toggle:hover > .open {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
 }
 
-body[data-nav="true"] > #nav-toggle > .close {
+body:not([data-focus="main"]) > #nav-toggle > .close {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
 }
 
-body[data-nav="true"] > main {
+body:not([data-focus="main"]) > main {
   transform: translateY(-50%);
 }
 
-body[data-nav="true"] > #nav > #nav-links {
+body:not([data-focus="main"]) > #nav > #nav-links {
   transform: translateY(0%) scale(1);
+}
+
+body[data-focus="item"] > main {
+  transform: translateY(100%);
+}
+
+body[data-focus="item"] > #nav > #nav-links {
+  transform: translateY(100%) scale(0);
 }
 
 .scrolling-column {
@@ -173,18 +181,22 @@ body[data-nav="true"] > #nav > #nav-links {
 
 @keyframes scroll-animation-1 {
   0% {
-    top: calc(0vh - var(--num-scrolling-rows-1) * var(--scrolling-row-height));
+    top: calc(
+      0vh - var(--num-scrolling-rows-1) * (var(--scrolling-row-height) + 5vmin)
+    );
   }
   100% {
-    top: 100vh;
+    top: 110vh;
   }
 }
 
 @keyframes scroll-animation-2 {
   0% {
-    top: 100vh;
+    top: 110vh;
   }
   100% {
-    top: calc(0vh - var(--num-scrolling-rows-2) * var(--scrolling-row-height));
+    top: calc(
+      0vh - var(--num-scrolling-rows-2) * (var(--scrolling-row-height) + 5vmin)
+    );
   }
 }
