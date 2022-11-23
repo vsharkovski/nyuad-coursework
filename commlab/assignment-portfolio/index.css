@@ -16,7 +16,7 @@ main {
 
 main {
   z-index: 2;
-  background-image: url("assets/images/pia23444-1600.jpg");
+  background-image: url("assets/images/IMG_20220731_190455.jpg");
   background-size: cover;
   background-position: center 0%;
   position: relative;
@@ -146,27 +146,27 @@ body[data-nav="true"] > #nav > #nav-links {
   animation-timing-function: linear;
 }
 
-.scrolling-column > div > img {
+.scrolling-column > div img {
   height: var(--scrolling-row-height);
   aspect-ratio: 3 / 4;
   border-radius: 0.75rem;
   object-fit: cover;
 }
 
-.column-1 {
+.left-column {
   left: 5vw;
 }
 
-.column-1 > div {
+.left-column > div {
   animation-name: scroll-animation-1;
   animation-duration: 25s;
 }
 
-.column-2 {
+.right-column {
   right: 5vw;
 }
 
-.column-2 > div {
+.right-column > div {
   animation-name: scroll-animation-2;
   animation-duration: 25s;
 }
