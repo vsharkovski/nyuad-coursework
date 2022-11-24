@@ -7,9 +7,15 @@ main {
   background-color: black;
 
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: x-large;
 
   --num-nav-items: 3;
   --scrolling-row-height: 70vmin;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 main {
@@ -84,9 +90,8 @@ main {
   text-decoration: none;
 }
 
-#nav-links > .nav-link > h2 {
+#nav-links > .nav-link > h4 {
   color: white;
-  font-size: 1.25rem;
   margin: 0rem;
   text-align: center;
   text-transform: uppercase;
@@ -216,6 +221,11 @@ body[data-focus="item"] > #nav > #nav-links {
   z-index: 2;
   position: relative;
   background-color: black;
+}
+
+.item-page > .item-info .link-list {
+  color: cornflowerblue;
+  font-weight: 600;
 }
 
 @media (min-aspect-ratio: 12 / 16) {

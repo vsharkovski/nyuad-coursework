@@ -168,9 +168,9 @@ allData
     a.classList.add("nav-link");
     navLinks.appendChild(a);
 
-    const h2 = document.createElement("h2");
-    h2.innerHTML = item.title;
-    a.appendChild(h2);
+    const h = document.createElement("h4");
+    h.innerHTML = item.title;
+    a.appendChild(h);
 
     const img = document.createElement("img");
     img.src = item.imageUrl;
