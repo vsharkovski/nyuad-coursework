@@ -93,18 +93,33 @@ const allData = [
   },
   {
     category: "interests",
-    route: "#about",
-    imageUrl: "assets/images/pia23444-1600.jpg",
+    route: "https://palewebserial.wordpress.com/",
+    imageUrl: "assets/images/interests/pale-prologue.jpg",
   },
   {
     category: "interests",
     route: "#about",
-    imageUrl: "assets/images/pia23444-1600.jpg",
+    imageUrl: "assets/images/interests/drvo-na-rid.jpg",
+  },
+  {
+    category: "interests",
+    route: "https://twigserial.wordpress.com/",
+    imageUrl: "assets/images/interests/twig-god.jpg",
   },
   {
     category: "interests",
     route: "#about",
-    imageUrl: "assets/images/pia23444-1600.jpg",
+    imageUrl: "assets/images/interests/selo-prespa.jpg",
+  },
+  {
+    category: "interests",
+    route: "https://github.com/vsharkovski",
+    imageUrl: "assets/images/interests/journeys-location-service.jpg",
+  },
+  {
+    category: "interests",
+    route: "#about",
+    imageUrl: "assets/images/interests/skopje-vardar.jpg",
   },
   {
     category: "projects",
