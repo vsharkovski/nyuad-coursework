@@ -35,7 +35,6 @@ const navigateFromFragment = (fragment) => {
     setFocus("item");
     // show the item
     const elem = document.querySelector(fragment);
-    console.log("Elem", elem);
     if (elem && elem != focusedItem) {
       if (focusedItem) {
         focusedItem.classList.remove("focused-item-page");
