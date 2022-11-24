@@ -3,6 +3,7 @@ Focus
 */
 
 let currentFragment = null;
+let focusedItem = null;
 
 const setFocus = (focus) => {
   const ds = document.body.dataset;
@@ -20,11 +21,28 @@ const navigateFromFragment = (fragment) => {
   window.location.hash = fragment;
   if (fragment === "" || fragment === "#" || fragment === "#main") {
     setFocus("main");
+    if (focusedItem) {
+      focusedItem.classList.remove("focused-item-page");
+      focusedItem = null;
+    }
   } else if (fragment === "#nav") {
     setFocus("nav");
+    if (focusedItem) {
+      focusedItem.classList.remove("focused-item-page");
+      focusedItem = null;
+    }
   } else {
     setFocus("item");
     // show the item
+    const elem = document.querySelector(fragment);
+    console.log("Elem", elem);
+    if (elem && elem != focusedItem) {
+      if (focusedItem) {
+        focusedItem.classList.remove("focused-item-page");
+      }
+      focusedItem = elem;
+      focusedItem.classList.add("focused-item-page");
+    }
   }
 };
 
@@ -75,17 +93,17 @@ const allData = [
   },
   {
     category: "interests",
-    route: "#reading",
+    route: "#about",
     imageUrl: "assets/images/pia23444-1600.jpg",
   },
   {
     category: "interests",
-    route: "#photography",
+    route: "#about",
     imageUrl: "assets/images/pia23444-1600.jpg",
   },
   {
     category: "interests",
-    route: "#coding",
+    route: "#about",
     imageUrl: "assets/images/pia23444-1600.jpg",
   },
   {
@@ -144,32 +162,34 @@ allData
     a.appendChild(img);
   });
 
-/*
 // Add all column items
 const addToColumn = (column, data) => {
-  data.forEach((item) => {
-    const div = document.createElement("div");
-    column.appendChild(div);
+  for (let iteration = 0; iteration < 2; ++iteration) {
+    data.forEach((item) => {
+      const div = document.createElement("div");
+      column.appendChild(div);
 
-    const a = document.createElement("a");
-    a.setAttribute("href", item.route);
-    div.appendChild(a);
+      const a = document.createElement("a");
+      a.setAttribute("href", item.route);
+      div.appendChild(a);
 
-    const img = document.createElement("img");
-    img.setAttribute("src", item.imageUrl);
-    a.appendChild(img);
-  });
+      const img = document.createElement("img");
+      img.setAttribute("src", item.imageUrl);
+      a.appendChild(img);
+    });
+  }
 };
 
-const leftColumn = document.querySelector(".left-column");
-const rightColumn = document.querySelector(".right-column");
-
 addToColumn(
-  leftColumn,
+  document.querySelector("#about .scrolling-column"),
   allData.filter((it) => it.category === "interests")
 );
-addToColumn(
-  rightColumn,
-  allData.filter((it) => it.category === "projects")
-);
-*/
+
+// addToColumn(
+//   leftColumn,
+//   allData.filter((it) => it.category === "interests")
+// );
+// addToColumn(
+//   rightColumn,
+//   allData.filter((it) => it.category === "projects")
+// );
