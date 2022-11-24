@@ -165,19 +165,25 @@ allData
   });
 
 // Add all column items
+const createElementFromDataPoint = (data) => {
+  const div = document.createElement("div");
+
+  const a = document.createElement("a");
+  a.setAttribute("href", data.route);
+  div.appendChild(a);
+
+  const img = document.createElement("img");
+  img.setAttribute("src", data.imageUrl);
+  a.appendChild(img);
+
+  return div;
+};
+
 const addToColumn = (column, data) => {
-  for (let iteration = 0; iteration < 2; ++iteration) {
-    data.forEach((item) => {
-      const div = document.createElement("div");
-      column.appendChild(div);
-
-      const a = document.createElement("a");
-      a.setAttribute("href", item.route);
-      div.appendChild(a);
-
-      const img = document.createElement("img");
-      img.setAttribute("src", item.imageUrl);
-      a.appendChild(img);
+  for (let iteration = 0; iteration < 2; iteration++) {
+    data.forEach((dataPoint) => {
+      const elem = createElementFromDataPoint(dataPoint);
+      column.appendChild(elem);
     });
   }
 };
@@ -191,3 +197,47 @@ addToColumn(
   document.querySelector("#projects .scrolling-column"),
   allData.filter((it) => it.category === "projects")
 );
+
+/*
+Add items in random order to main grid
+*/
+
+// Fisher-Yates shuffle algorithm
+const shuffleArray = (array) => {
+  let currentIndex = array.length;
+  while (currentIndex != 0) {
+    const randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+    [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+  }
+};
+
+// shuffle the items
+const shuffledData = allData.filter((it) => it.category === "interests" || it.category === "projects");
+shuffleArray(shuffledData);
+
+// create grid columns
+const numGridColumns = 4;
+const columns = [];
+const grid = document.querySelector("#main-grid");
+let itemToAddIndex = 0;
+
+for (let colIndex = 0; colIndex < numGridColumns; colIndex++) {
+  // create column element
+  const col = document.createElement("div");
+  col.classList.add("main-grid-column");
+  grid.appendChild(col);
+  columns.push(col);
+
+  // add items to this column
+  let numToAdd = Math.min(Math.floor(shuffledData.length / numGridColumns, shuffledData.length - itemToAddIndex + 1));
+  while (numToAdd > 0) {
+    // add next item
+    const elem = createElementFromDataPoint(shuffledData[itemToAddIndex]);
+    col.appendChild(elem);
+
+    // update indices
+    itemToAddIndex++;
+    numToAdd--;
+  }
+}
