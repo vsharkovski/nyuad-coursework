@@ -115,32 +115,32 @@ const allData = [
   {
     category: "projects",
     route: "https://github.com/vsharkovski/Journeys",
-    imageUrl: "assets/images/projects/journeys.png",
+    imageUrl: "assets/images/projects/journeys.jpg",
   },
   {
     category: "projects",
     route: "https://github.com/vsharkovski/Competitive-Programming",
-    imageUrl: "assets/images/projects/competitive-programming-repo.png",
+    imageUrl: "assets/images/projects/competitive-programming-repo.jpg",
   },
   {
     category: "projects",
     route: "https://vsharkovski.github.io/nyuad-coursework/commlab/assignment-30mmf/",
-    imageUrl: "assets/images/projects/commlab-30mmf.png",
+    imageUrl: "assets/images/projects/commlab-30mmf.jpg",
   },
   {
     category: "projects",
     route: "https://vsharkovski.github.io/nyuad-coursework/commlab/assignment-comic/",
-    imageUrl: "assets/images/projects/commlab-comic.png",
+    imageUrl: "assets/images/projects/commlab-comic.jpg",
   },
   {
     category: "projects",
     route: "https://vsharkovski.github.io/nyuad-coursework/commlab/assignment-sound/",
-    imageUrl: "assets/images/projects/commlab-sound.png",
+    imageUrl: "assets/images/projects/commlab-sound.jpg",
   },
   {
     category: "projects",
     route: "https://vsharkovski.github.io/nyuad-coursework/commlab/assignment-video/",
-    imageUrl: "assets/images/projects/commlab-video.png",
+    imageUrl: "assets/images/projects/commlab-video.jpg",
   },
 ];
 
