@@ -79,7 +79,7 @@ const allData = [
   {
     category: "nav",
     route: "#projects",
-    imageUrl: "assets/images/pia23444-1600.jpg",
+    imageUrl: "assets/images/nav/hard-working.jpg",
     title: "Projects",
   },
   {
