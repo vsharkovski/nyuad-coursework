@@ -2,58 +2,57 @@
 Focus
 */
 
-const setFocus = (focus, item) => {
+let currentFragment = null;
+
+const setFocus = (focus) => {
   const ds = document.body.dataset;
-  if (focus === "main") {
-    // pass
-  } else if (focus === "nav") {
-    // pass
-  } else if (focus === "item") {
-    // show the item
-  } else {
+  if (focus !== "main" && focus !== "nav" && focus !== "item") {
     console.error("Invalid focus value");
     return;
   }
   ds.focus = focus;
 };
 
+// Navigate based on fragment
+const navigateFromFragment = (fragment) => {
+  if (fragment === currentFragment) return;
+  currentFragment = fragment;
+  window.location.hash = fragment;
+  if (fragment === "" || fragment === "#" || fragment === "#main") {
+    setFocus("main");
+  } else if (fragment === "#nav") {
+    setFocus("nav");
+  } else {
+    setFocus("item");
+    // show the item
+  }
+};
+
+// Process initial fragment
+navigateFromFragment(window.location.hash);
+
+// Process fragment change
+window.addEventListener("hashchange", (event) =>
+  navigateFromFragment(window.location.hash)
+);
+
+// Handle clicking nav toggle
 const navToggle = document.querySelector("#nav-toggle");
 
 navToggle.addEventListener("click", () => {
-  const ds = document.body.dataset;
-  if (ds.focus === "main") {
-    setFocus("nav");
+  const fragment = window.location.hash;
+  if (fragment === "" || fragment === "#" || fragment === "#main") {
+    // now on main, go to nav
+    navigateFromFragment("#nav");
   } else {
-    setFocus("main");
+    // go back to main
+    navigateFromFragment("#main");
   }
 });
-
-// Focus change on navigation (when the route anchor changes)
-window.addEventListener("hashchange", (event) => {
-  const fragment = getRouteFragment(event.newURL);
-  console.log(fragment);
-});
-
-// Utility functiion to get route anchor
-const getRouteFragment = (url) => {
-  const hashURLIndex = url.lastIndexOf("#");
-  if (hashURLIndex === -1) return null;
-  const hash = url.slice(hashURLIndex + 1, url.length);
-  return hash;
-};
 
 /*
 Items
 */
-
-class ItemData {
-  constructor(category, route, imageUrl, title = "") {
-    this.category = category;
-    this.route = route;
-    this.imageUrl = imageUrl;
-    this.title = title;
-  }
-}
 
 const allData = [
   {
