@@ -123,11 +123,11 @@ body:not([data-focus="main"]) > #nav-toggle > .close {
   transform: translate(-50%, -50%) scale(1);
 }
 
-body:not([data-focus="main"]) > main {
+body[data-focus="nav"] > main {
   transform: translateY(-50%);
 }
 
-body:not([data-focus="main"]) > #nav > #nav-links {
+body[data-focus="nav"] > #nav > #nav-links {
   transform: translateY(0%) scale(1);
 }
 
@@ -139,6 +139,7 @@ body[data-focus="item"] > #nav > #nav-links {
   transform: translateY(100%) scale(0);
 }
 
+/*
 .scrolling-column {
   z-index: 4;
   position: fixed;
@@ -208,3 +209,4 @@ body[data-focus="item"] > #nav > #nav-links {
     );
   }
 }
+*/

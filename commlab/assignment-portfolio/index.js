@@ -144,6 +144,7 @@ allData
     a.appendChild(img);
   });
 
+/*
 // Add all column items
 const addToColumn = (column, data) => {
   data.forEach((item) => {
@@ -171,3 +172,4 @@ addToColumn(
   rightColumn,
   allData.filter((it) => it.category === "projects")
 );
+*/
