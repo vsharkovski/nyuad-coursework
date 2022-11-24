@@ -56,49 +56,76 @@ class ItemData {
 }
 
 const allData = [
-  new ItemData("nav", "#about", "assets/images/pia23444-1600.jpg", "About"),
-  new ItemData(
-    "nav",
-    "#projects",
-    "assets/images/pia23444-1600.jpg",
-    "Projects"
-  ),
-  new ItemData("nav", "#contact", "assets/images/pia23444-1600.jpg", "Contact"),
-  new ItemData("interests", "#reading", "assets/images/pia23444-1600.jpg"),
-  new ItemData("interests", "#photography", "assets/images/pia23444-1600.jpg"),
-  new ItemData("interests", "#coding", "assets/images/pia23444-1600.jpg"),
-  new ItemData(
-    "projects",
-    "https://github.com/vsharkovski/Journeys",
-    "assets/images/projects/journeys.png"
-  ),
-  new ItemData(
-    "projects",
-    "https://github.com/vsharkovski/Competitive-Programming",
-    "assets/images/projects/competitive-programming-repo.png"
-  ),
-  new ItemData(
-    "projects",
-    "https://vsharkovski.github.io/nyuad-coursework/commlab/assignment-30mmf/",
-    "assets/images/projects/commlab-30mmf.png"
-  ),
-  new ItemData(
-    "projects",
-    "https://vsharkovski.github.io/nyuad-coursework/commlab/assignment-comic/",
-    "assets/images/projects/commlab-comic.png"
-  ),
-  new ItemData(
-    "projects",
-    "https://vsharkovski.github.io/nyuad-coursework/commlab/assignment-sound/",
-    "assets/images/projects/commlab-sound.png"
-  ),
-  new ItemData(
-    "projects",
-    "https://vsharkovski.github.io/nyuad-coursework/commlab/assignment-video/",
-    "assets/images/projects/commlab-video.png"
-  ),
+  {
+    category: "nav",
+    route: "#about",
+    imageUrl: "assets/images/pia23444-1600.jpg",
+    title: "About",
+  },
+  {
+    category: "nav",
+    route: "#projects",
+    imageUrl: "assets/images/pia23444-1600.jpg",
+    title: "Projects",
+  },
+  {
+    category: "nav",
+    route: "#contact",
+    imageUrl: "assets/images/pia23444-1600.jpg",
+    title: "Contact",
+  },
+  {
+    category: "interests",
+    route: "#reading",
+    imageUrl: "assets/images/pia23444-1600.jpg",
+  },
+  {
+    category: "interests",
+    route: "#photography",
+    imageUrl: "assets/images/pia23444-1600.jpg",
+  },
+  {
+    category: "interests",
+    route: "#coding",
+    imageUrl: "assets/images/pia23444-1600.jpg",
+  },
+  {
+    category: "projects",
+    route: "https://github.com/vsharkovski/Journeys",
+    imageUrl: "assets/images/projects/journeys.png",
+  },
+  {
+    category: "projects",
+    route: "https://github.com/vsharkovski/Competitive-Programming",
+    imageUrl: "assets/images/projects/competitive-programming-repo.png",
+  },
+  {
+    category: "projects",
+    route:
+      "https://vsharkovski.github.io/nyuad-coursework/commlab/assignment-30mmf/",
+    imageUrl: "assets/images/projects/commlab-30mmf.png",
+  },
+  {
+    category: "projects",
+    route:
+      "https://vsharkovski.github.io/nyuad-coursework/commlab/assignment-comic/",
+    imageUrl: "assets/images/projects/commlab-comic.png",
+  },
+  {
+    category: "projects",
+    route:
+      "https://vsharkovski.github.io/nyuad-coursework/commlab/assignment-sound/",
+    imageUrl: "assets/images/projects/commlab-sound.png",
+  },
+  {
+    category: "projects",
+    route:
+      "https://vsharkovski.github.io/nyuad-coursework/commlab/assignment-video/",
+    imageUrl: "assets/images/projects/commlab-video.png",
+  },
 ];
 
+// Add all nav items
 const navLinks = document.querySelector("#nav-links");
 
 allData
@@ -118,6 +145,7 @@ allData
     a.appendChild(img);
   });
 
+// Add all column items
 const addToColumn = (column, data) => {
   data.forEach((item) => {
     const div = document.createElement("div");
