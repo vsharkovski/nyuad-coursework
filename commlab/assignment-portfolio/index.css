@@ -94,7 +94,7 @@ main {
   color: white;
   margin: 0rem;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: lowercase;
 }
 
 #nav-links > .nav-link > img {
@@ -159,11 +159,7 @@ body[data-focus="item"] > #nav > #nav-links {
   border-radius: 0.75rem;
   object-fit: cover;
 
-  --scrolling-gradient: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.9) 100%
-  );
+  --scrolling-gradient: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 100%);
   mask-image: var(--scrolling-gradient);
   -webkit-mask-image: var(--scrolling-gradient);
 }
@@ -223,7 +219,7 @@ body[data-focus="item"] > #nav > #nav-links {
   background-color: black;
 }
 
-.item-page > .item-info .link-list {
+.item-page > .item-info .link-list a {
   color: cornflowerblue;
   font-weight: 600;
 }

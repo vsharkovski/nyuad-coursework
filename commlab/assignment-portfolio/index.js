@@ -50,9 +50,7 @@ const navigateFromFragment = (fragment) => {
 navigateFromFragment(window.location.hash);
 
 // Process fragment change
-window.addEventListener("hashchange", (event) =>
-  navigateFromFragment(window.location.hash)
-);
+window.addEventListener("hashchange", (event) => navigateFromFragment(window.location.hash));
 
 // Handle clicking nav toggle
 const navToggle = document.querySelector("#nav-toggle");
@@ -76,7 +74,7 @@ const allData = [
   {
     category: "nav",
     route: "#about",
-    imageUrl: "assets/images/pia23444-1600.jpg",
+    imageUrl: "assets/images/nav/whoami.jpg",
     title: "About",
   },
   {
@@ -84,12 +82,6 @@ const allData = [
     route: "#projects",
     imageUrl: "assets/images/pia23444-1600.jpg",
     title: "Projects",
-  },
-  {
-    category: "nav",
-    route: "#contact",
-    imageUrl: "assets/images/pia23444-1600.jpg",
-    title: "Contact",
   },
   {
     category: "interests",
@@ -133,26 +125,22 @@ const allData = [
   },
   {
     category: "projects",
-    route:
-      "https://vsharkovski.github.io/nyuad-coursework/commlab/assignment-30mmf/",
+    route: "https://vsharkovski.github.io/nyuad-coursework/commlab/assignment-30mmf/",
     imageUrl: "assets/images/projects/commlab-30mmf.png",
   },
   {
     category: "projects",
-    route:
-      "https://vsharkovski.github.io/nyuad-coursework/commlab/assignment-comic/",
+    route: "https://vsharkovski.github.io/nyuad-coursework/commlab/assignment-comic/",
     imageUrl: "assets/images/projects/commlab-comic.png",
   },
   {
     category: "projects",
-    route:
-      "https://vsharkovski.github.io/nyuad-coursework/commlab/assignment-sound/",
+    route: "https://vsharkovski.github.io/nyuad-coursework/commlab/assignment-sound/",
     imageUrl: "assets/images/projects/commlab-sound.png",
   },
   {
     category: "projects",
-    route:
-      "https://vsharkovski.github.io/nyuad-coursework/commlab/assignment-video/",
+    route: "https://vsharkovski.github.io/nyuad-coursework/commlab/assignment-video/",
     imageUrl: "assets/images/projects/commlab-video.png",
   },
 ];
@@ -200,11 +188,7 @@ addToColumn(
   allData.filter((it) => it.category === "interests")
 );
 
-// addToColumn(
-//   leftColumn,
-//   allData.filter((it) => it.category === "interests")
-// );
-// addToColumn(
-//   rightColumn,
-//   allData.filter((it) => it.category === "projects")
-// );
+addToColumn(
+  document.querySelector("#projects .scrolling-column"),
+  allData.filter((it) => it.category === "projects")
+);
