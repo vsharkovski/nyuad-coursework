@@ -76,6 +76,8 @@ main {
 }
 
 #nav-links {
+  width: 90%;
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -100,7 +102,7 @@ main {
 
 #nav-links > .nav-link > img {
   width: auto;
-  height: calc(50vh / var(--num-nav-items) - 6vmax);
+  height: calc(50vh / var(--num-nav-items) - 4vh);
   aspect-ratio: 1.8 / 1;
   border-radius: 0.5rem;
   margin-top: 0.75rem;
@@ -112,7 +114,7 @@ main {
     flex-direction: row;
   }
   #nav-links > .nav-link > img {
-    width: calc(100vw / var(--num-nav-items) - 6vmax);
+    width: calc(100vw / var(--num-nav-items) - 6vw);
     height: auto;
   }
 }
