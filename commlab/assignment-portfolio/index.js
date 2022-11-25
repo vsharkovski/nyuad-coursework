@@ -164,7 +164,8 @@ allData
     a.appendChild(h);
 
     const img = document.createElement("img");
-    img.src = item.imageUrl;
+    img.setAttribute("src", item.imageUrl);
+    img.classList.add("dimmed");
     a.appendChild(img);
   });
 
@@ -178,6 +179,7 @@ const createElementFromDataPoint = (data) => {
 
   const img = document.createElement("img");
   img.setAttribute("src", data.imageUrl);
+  img.classList.add("dimmed");
   a.appendChild(img);
 
   return div;
@@ -223,27 +225,9 @@ const shuffledData = allData.filter((it) => it.category === "interests" || it.ca
 shuffleArray(shuffledData);
 
 // create grid columns
-const numGridColumns = 4;
-const columns = [];
 const grid = document.querySelector("#main-grid");
-let itemToAddIndex = 0;
 
-for (let colIndex = 0; colIndex < numGridColumns; colIndex++) {
-  // create column element
-  const col = document.createElement("div");
-  col.classList.add("main-grid-column");
-  grid.appendChild(col);
-  columns.push(col);
-
-  // add items to this column
-  let numToAdd = Math.min(Math.floor(shuffledData.length / numGridColumns, shuffledData.length - itemToAddIndex + 1));
-  while (numToAdd > 0) {
-    // add next item
-    const elem = createElementFromDataPoint(shuffledData[itemToAddIndex]);
-    col.appendChild(elem);
-
-    // update indices
-    itemToAddIndex++;
-    numToAdd--;
-  }
-}
+shuffledData.forEach((data) => {
+  const elem = createElementFromDataPoint(data);
+  grid.appendChild(elem);
+});
