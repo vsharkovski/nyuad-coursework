@@ -5,6 +5,7 @@ Focus
 let currentFragment = null;
 let focusedItem = null;
 
+// set the focus in the body's dataset for nice visual effects using CSS
 const setFocus = (focus) => {
   const ds = document.body.dataset;
   if (focus !== "main" && focus !== "nav" && focus !== "item") {
@@ -20,18 +21,21 @@ const navigateFromFragment = (fragment) => {
   currentFragment = fragment;
   window.location.hash = fragment;
   if (fragment === "" || fragment === "#" || fragment === "#main") {
+    // fragment is main, set focus to main and remove current focused item
     setFocus("main");
     if (focusedItem) {
       focusedItem.classList.remove("focused-item-page");
       focusedItem = null;
     }
   } else if (fragment === "#nav") {
+    // fragment is nav, set focus to nav and remove current focused item
     setFocus("nav");
     if (focusedItem) {
       focusedItem.classList.remove("focused-item-page");
       focusedItem = null;
     }
   } else {
+    // fragment is some item, set focus to it
     setFocus("item");
     // show the item
     const elem = document.querySelector(fragment);
@@ -180,6 +184,8 @@ const createElementFromDataPoint = (data) => {
 };
 
 const addToColumn = (column, data) => {
+  if (!column || !data) return;
+  // add everything twice to enable the infinite scroll effect with CSS
   for (let iteration = 0; iteration < 2; iteration++) {
     data.forEach((dataPoint) => {
       const elem = createElementFromDataPoint(dataPoint);
