@@ -76,6 +76,7 @@ main {
 }
 
 #nav-links {
+  height: 90%;
   width: 90%;
   margin-inline: auto;
   display: flex;
