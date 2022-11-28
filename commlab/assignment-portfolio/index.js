@@ -79,72 +79,86 @@ const allData = [
     route: "#about",
     imageUrl: "assets/images/nav/whoami.jpg",
     title: "About",
+    showOnMain: false,
   },
   {
     category: "nav",
     route: "#projects",
     imageUrl: "assets/images/nav/hard-working.jpg",
     title: "Projects",
+    showOnMain: false,
   },
   {
     category: "interests",
     route: "https://palewebserial.wordpress.com/",
     imageUrl: "assets/images/interests/pale-prologue.jpg",
+    showOnMain: true,
   },
-  // {
-  //   category: "interests",
-  //   route: "#about",
-  //   imageUrl: "assets/images/interests/drvo-na-rid.jpg",
-  // },
   {
     category: "interests",
     route: "https://twigserial.wordpress.com/",
     imageUrl: "assets/images/interests/twig-god.jpg",
+    showOnMain: true,
   },
-  // {
-  //   category: "interests",
-  //   route: "#about",
-  //   imageUrl: "assets/images/interests/selo-prespa.jpg",
-  // },
   {
     category: "interests",
     route: "https://github.com/vsharkovski",
     imageUrl: "assets/images/interests/journeys-location-service.jpg",
+    showOnMain: true,
   },
-  // {
-  //   category: "interests",
-  //   route: "#about",
-  //   imageUrl: "assets/images/interests/skopje-vardar.jpg",
-  // },
   {
     category: "projects",
     route: "https://github.com/vsharkovski/Journeys",
     imageUrl: "assets/images/projects/journeys.jpg",
+    showOnMain: true,
   },
   {
     category: "projects",
     route: "https://github.com/vsharkovski/Competitive-Programming",
     imageUrl: "assets/images/projects/competitive-programming-repo.jpg",
+    showOnMain: true,
+  },
+  {
+    category: "projects",
+    route: "https://github.com/vsharkovski/QuizRandom",
+    imageUrl: "assets/images/projects/quiz-random.png",
+    showOnMain: true,
+  },
+  {
+    category: "projects",
+    route: "https://github.com/vsharkovski/KillTheZombies",
+    imageUrl: "assets/images/projects/kill-the-zombies.jpg",
+    showOnMain: true,
+  },
+  {
+    category: "projects",
+    route: "https://github.com/vsharkovski/UnfinishedGame",
+    imageUrl: "assets/images/projects/unfinished-game.jpg",
+    showOnMain: true,
   },
   {
     category: "projects",
     route: "https://vsharkovski.github.io/nyuad-coursework/commlab/assignment-30mmf/",
     imageUrl: "assets/images/projects/commlab-30mmf.jpg",
+    showOnMain: false,
   },
   {
     category: "projects",
     route: "https://vsharkovski.github.io/nyuad-coursework/commlab/assignment-comic/",
     imageUrl: "assets/images/projects/commlab-comic.jpg",
+    showOnMain: true,
   },
   {
     category: "projects",
     route: "https://vsharkovski.github.io/nyuad-coursework/commlab/assignment-sound/",
     imageUrl: "assets/images/projects/commlab-sound.jpg",
+    showOnMain: false,
   },
   {
     category: "projects",
     route: "https://vsharkovski.github.io/nyuad-coursework/commlab/assignment-video/",
     imageUrl: "assets/images/projects/commlab-video.jpg",
+    showOnMain: true,
   },
 ];
 
@@ -221,7 +235,9 @@ const shuffleArray = (array) => {
 };
 
 // shuffle the items
-const shuffledData = allData.filter((it) => it.category === "interests" || it.category === "projects");
+const shuffledData = allData.filter(
+  (it) => it.showOnMain === true && (it.category === "interests" || it.category === "projects")
+);
 shuffleArray(shuffledData);
 
 // create grid columns

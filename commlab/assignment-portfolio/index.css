@@ -61,7 +61,7 @@ main {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%) scale(0.9);
-  color: white;
+  color: black;
   font-size: 2vmax;
   opacity: 0;
 }
