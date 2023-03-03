@@ -5,8 +5,10 @@ symbol_map = {
     "tinv": "Tile None rx ry tx ty 1 0",
     "tbb1": "Tile BrickBlue1 rx ry tx ty 1 1",
     "tbb2": "Tile BrickBlue2 rx ry tx ty 1 1",
-    "tbo1": "Tile BrickOrange1 rx ry tx ty 1 1",
-    "tbo2": "Tile BrickOrange2 rx ry tx ty 1 1",
+    "tbr1": "Tile BrickRed1 rx ry tx ty 1 1",
+    "tbr2": "Tile BrickRed2 rx ry tx ty 1 1",
+    "tdbl": "Tile DoorBlueLeft rx ry tx ty 1 1",
+    "tdrt": "Tile DoorRedTop rx ry tx ty 1 1",
     "trtl": "Tile RockTL rx ry tx ty 1 1",
     "trtm": "Tile RockTM rx ry tx ty 1 1",
     "trtr": "Tile RockTR rx ry tx ty 1 1",
@@ -73,13 +75,13 @@ tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
 tbb1 .... nt01 .... .... .... .... .... .... .... .... tbb1
 tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
 tbb1 .... .... .... tbb2 .... .... tbb2 .... .... .... tbb1
-.... .... .... .... .... .... .... .... .... .... .... ....
-.... .... .... .... .... nt02 .... .... .... .... .... ....
+.... .... .... .... .... .... .... .... .... .... .... tdbl
+.... .... .... .... .... nt02 .... .... .... .... .... tdbl
 tbb1 .... .... .... tbb2 .... .... tbb2 .... .... .... tbb1
 tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
 tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
 tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
-tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1
+tbb1 tbb1 tbb1 tbb1 tbb1 tdrt tdrt tbb1 tbb1 tbb1 tbb1 tbb1
 
 -1 2 #007a85
 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1
