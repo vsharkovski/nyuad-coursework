@@ -28,11 +28,14 @@ symbol_map = {
     "tblk": "Tile Black rx ry tx ty 0 0",
     "hrt0": "Tile Heart rx ry tx ty 0 0",
     "hrt1": "Tile Heart rx ry tx ty 1 0",
-    "nk01": ["NPC Knight rx ry tx ty 0 0 5 2", "Follow 1 7"],
-    "nk02": ["NPC Knight rx ry tx ty 0 0 5 3", "Patrol 1.3 2 6 3 6 8", "Follow 1.5 2"],
-    "nk03": ["NPC Knight rx ry tx ty 0 0 5 3", "Patrol 1.3 2 2 8 7 8", "Follow 1.5 2"],
-    "nt01": ["NPC Tektite rx ry tx ty 0 1 8 4", "Patrol 3 4 2 2 2 9 9 9 9 2"],
-    "nt02": ["NPC Tektite rx ry tx ty 0 0 3 3", "Follow 2 4"],
+    "keyb": "Tile KeyBlue rx ry tx ty 0 0",
+    "keyr": "Tile KeyRed rx ry tx ty 0 0",
+    "nk01": ["NPC Knight rx ry tx ty 1 0 5 2", "Follow 1 7"],
+    "nk02": ["NPC Knight rx ry tx ty 1 0 5 3", "Patrol 1.3 2 6 3 6 8", "Follow 1.5 2"],
+    "nk03": ["NPC Knight rx ry tx ty 1 0 5 3", "Patrol 1.3 2 2 8 7 8", "Follow 1.5 2"],
+    "nt01": ["NPC Tektite rx ry tx ty 1 1 8 4", "Patrol 3 4 2 2 2 9 9 9 9 2"],
+    "nt02": ["NPC Tektite rx ry tx ty 1 0 3 3", "Follow 2 4"],
+    "nt03": ["NPC TektiteDark rx ry tx ty 1 0 4 3", "Follow 2.5 7"],
     "p001": "Player rx ry tx ty 48 48 3 14"
 }
 
@@ -69,7 +72,7 @@ trbm .... .... .... .... .... .... .... .... .... .... trbm
 trbr .... .... .... nk01 .... .... nk01 .... .... .... trbl
 tbb1 tbb1 tbb1 tbb1 tbb1 .... .... tbb1 tbb1 tbb1 tbb1 tbb1
 
-0 2 #007a85
+0 2 #5b687d
 tbb1 tbb1 tbb1 tbb1 tbb1 .... .... tbb1 tbb1 tbb1 tbb1 tbb1
 tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
 tbb1 .... nt01 .... .... .... .... .... .... .... .... tbb1
@@ -83,7 +86,7 @@ tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
 tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
 tbb1 tbb1 tbb1 tbb1 tbb1 tdrt tdrt tbb1 tbb1 tbb1 tbb1 tbb1
 
--1 2 #007a85
+-1 2 #5b687d
 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1
 tbb1 .... .... tbb2 .... .... .... .... .... .... .... tbb1
 tbb1 .... .... tbb2 .... .... .... .... .... .... .... tbb1
@@ -97,43 +100,29 @@ tbb1 .... .... .... .... .... .... .... tbb2 .... .... tbb1
 tbb1 .... .... .... .... .... .... .... tbb2 .... .... tbb1
 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1
 
--2 2 #007a85
+-2 2 #5b687d
 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1
-tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
-tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
-tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
-tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
-tbb1 .... .... .... .... .... .... .... .... .... .... ....
-tbb1 .... .... .... .... .... .... .... .... .... .... ....
-tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
-tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
-tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
-tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
-tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1
-
-1 2 #007a85
-tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1
-tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
-tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
-tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
-tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
-.... .... .... .... .... .... .... .... .... .... .... ....
-.... .... .... .... .... .... .... .... .... .... .... ....
-tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
-tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
-tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
-tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
+tbb1 .... .... twml twmr .... .... .... .... .... .... tbb1
+tbb1 .... .... twml twmr .... .... .... .... .... .... tbb1
+tbb1 .... .... twml twmr .... .... .... .... .... .... tbb1
+tbb1 .... .... twml twmr .... .... .... .... .... .... tbb1
+tbb1 .... nt03 twml twmr .... .... .... .... .... .... ....
+tbb1 .... .... twml twmr .... keyb .... .... .... .... ....
+tbb1 .... .... twml twmr .... .... .... .... .... .... tbb1
+tbb1 .... .... twml twmr .... .... .... .... .... .... tbb1
+tbb1 .... .... twml twmr .... .... .... .... .... .... tbb1
+tbb1 .... .... twml twmr .... .... .... .... .... .... tbb1
 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1
 
-2 2 #007a85
+1 2 #5b687d
 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1
 tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
 tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
 tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
-tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
+tbb1 .... .... .... .... .... keyr .... .... .... .... tbb1
 .... .... .... .... .... .... .... .... .... .... .... tbb1
 .... .... .... .... .... .... .... .... .... .... .... tbb1
-tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
+tbb1 .... .... .... .... .... hrt0 .... .... .... .... tbb1
 tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
 tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
 tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
