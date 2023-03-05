@@ -24,6 +24,11 @@ symbol_map = {
     "twbl": "Tile WaterBL rx ry tx ty 1 0",
     "twbm": "Tile WaterBM rx ry tx ty 1 0",
     "twbr": "Tile WaterBR rx ry tx ty 1 0",
+    "tttl": "Tile TreeTL rx ry tx ty 1 1",
+    "tttm": "Tile TreeTM rx ry tx ty 1 1",
+    "tttr": "Tile TreeTR rx ry tx ty 1 1",
+    "ttbl": "Tile TreeBL rx ry tx ty 1 1",
+    "ttbr": "Tile TreeBR rx ry tx ty 1 1",
     "tbsh": "Tile Bush rx ry tx ty 0 1",
     "tblk": "Tile Black rx ry tx ty 0 0",
     "hrt0": "Tile Heart rx ry tx ty 0 0",
@@ -36,7 +41,8 @@ symbol_map = {
     "nt01": ["NPC Tektite rx ry tx ty 1 1 8 4", "Patrol 3 4 2 2 2 9 9 9 9 2"],
     "nt02": ["NPC Tektite rx ry tx ty 1 0 3 3", "Follow 2 4"],
     "nt03": ["NPC TektiteDark rx ry tx ty 1 0 4 3", "Follow 2.5 7"],
-    "p001": "Player rx ry tx ty 48 48 3 14"
+    "p001": "Player rx ry tx ty 48 48 3 14",
+    "trg1": "Trigger rx ry tx ty 1",
 }
 
 levels = []
@@ -127,6 +133,21 @@ tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
 tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
 tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1
+
+0 3 None
+tbb1 tbb1 tbb1 tbb1 tbb1 .... .... tbb1 tbb1 tbb1 tbb1 tbb1
+trbm .... .... .... .... trg1 trg1 .... .... .... .... trbm
+trbm .... .... .... .... .... .... .... .... .... .... trbm
+trbm .... .... .... .... .... .... .... .... tbsh .... trbm
+trbr .... tbsh .... .... .... .... .... .... .... .... trbl
+tinv .... .... .... .... .... .... .... .... .... .... tinv
+tinv .... .... .... .... .... .... .... tbsh .... .... tinv
+tinv .... .... .... .... .... .... .... .... .... .... tinv
+tinv .... .... tbsh .... .... .... .... tttl tttm tttr tinv
+tinv .... .... .... .... .... .... .... ttbl tblk ttbr tinv 
+twtm twtm twtr .... .... .... .... .... .... .... .... tinv 
+twmm twmm twmm twtm twtr tinv tinv tinv tinv tinv tinv tinv
+
 """)
 
 for levelIndex in range(len(levels)):
