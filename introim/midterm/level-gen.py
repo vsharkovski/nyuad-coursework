@@ -38,6 +38,7 @@ symbol_map = {
     "nk01": ["NPC Knight rx ry tx ty 1 0 5 2", "Follow 1 7"],
     "nk02": ["NPC Knight rx ry tx ty 1 0 5 3", "Patrol 1.3 2 6 3 6 8", "Follow 1.5 2"],
     "nk03": ["NPC Knight rx ry tx ty 1 0 5 3", "Patrol 1.3 2 2 8 7 8", "Follow 1.5 2"],
+    "nk04": ["NPC Knight rx ry tx ty 1 0 6 4", "Follow 1.75 12"],
     "nt01": ["NPC Tektite rx ry tx ty 1 1 8 4", "Patrol 3 4 2 2 2 9 9 9 9 2"],
     "nt02": ["NPC Tektite rx ry tx ty 1 0 3 3", "Follow 2 4"],
     "nt03": ["NPC TektiteDark rx ry tx ty 1 0 4 3", "Follow 2.5 7"],
@@ -126,12 +127,12 @@ tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1
 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1
 tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
 tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
-tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
+tbb1 nk04 .... .... .... .... .... .... .... .... .... tbb1
 tbb1 .... .... .... .... .... keyr .... .... .... .... tbb1
 .... .... .... .... .... .... .... .... .... .... .... tbb1
 .... .... .... .... .... .... .... .... .... .... .... tbb1
 tbb1 .... .... .... .... .... hrt0 .... .... .... .... tbb1
-tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
+tbb1 nk04 .... .... .... .... .... .... .... .... .... tbb1
 tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
 tbb1 .... .... .... .... .... .... .... .... .... .... tbb1
 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1
