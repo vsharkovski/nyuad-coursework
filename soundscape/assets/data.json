@@ -2,7 +2,7 @@
   "maps": [
     {
       "name": "campus",
-      "svg": "./svg/campus.svg",
+      "elementId": "campus-map",
       "triggers": [
         {
           "name": "goToC2",
@@ -15,12 +15,19 @@
           "elementId": "palms",
           "type": "playSound",
           "sound": "palms"
-        }
+        },
+        { "name": "playParking", "elementId": "parking" },
+        { "name": "playC3", "elementId": "c3" },
+        { "name": "playHighlineA4", "elementId": "highline-a4" },
+        { "name": "playBehind", "elementId": "behind" },
+        { "name": "playD1", "elementId": "d1" },
+        { "name": "playD2", "elementId": "d2" },
+        { "name": "playWelcomeCenter", "elementId": "welcome-center" }
       ]
     },
     {
       "name": "c2",
-      "svg": "./svg/c2.svg",
+      "elementId": "c2-map",
       "triggers": [
         {
           "name": "playMarketplace",

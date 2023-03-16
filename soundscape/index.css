@@ -1,9 +1,24 @@
-html, body {
-  margin: 0;
-  padding: 0;
+body {
+  padding: 1rem;
   background-color: black;
 }
 
-#c2 {
+.map {
+}
+
+#c2-map {
+  padding: 4rem;
+}
+
+.trigger {
+  /* fill: rgb(50, 50, 50); */
+}
+
+.trigger:hover {
   cursor: pointer;
+  fill: rgb(80, 80, 80);
+}
+
+.hidden {
+  display: none;
 }
