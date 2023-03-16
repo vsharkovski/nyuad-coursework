@@ -30,14 +30,18 @@ body {
 }
 
 .back-button {
-  padding-inline: 1rem;
   border-style: none;
   background-color: rgba(0, 0, 0, 0);
   color: rgba(100, 100, 100);
-  font-size: 5rem;
 }
 
 .back-button:hover {
   cursor: pointer;
   color: var(--hover-color);
+}
+
+#c2-map .back-button {
+  position: fixed;
+  padding-inline: 1rem;
+  font-size: min(5rem, 10vmin);
 }
