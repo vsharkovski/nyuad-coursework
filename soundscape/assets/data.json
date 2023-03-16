@@ -8,21 +8,56 @@
           "name": "goToC2",
           "elementId": "c2",
           "type": "changeMap",
-          "map": "c2"
+          "target": "c2"
         },
         {
           "name": "playPalms",
           "elementId": "palms",
-          "type": "playSound",
-          "sound": "palms"
+          "type": "showExperience",
+          "target": "palms"
         },
-        { "name": "playParking", "elementId": "parking" },
-        { "name": "playC3", "elementId": "c3" },
-        { "name": "playHighlineA4", "elementId": "highline-a4" },
-        { "name": "playBehind", "elementId": "behind" },
-        { "name": "playD1", "elementId": "d1" },
-        { "name": "playD2", "elementId": "d2" },
-        { "name": "playWelcomeCenter", "elementId": "welcome-center" }
+        {
+          "name": "playParking",
+          "elementId": "parking",
+          "type": "showExperience",
+          "target": "parking"
+        },
+        {
+          "name": "playC3",
+          "elementId": "c3",
+          "type": "showExperience",
+          "target": "c3"
+        },
+        {
+          "name": "playHighlineA4",
+          "elementId": "highline-a4",
+          "type": "showExperience",
+          "target": "highline-a4"
+        },
+        {
+          "name": "playBehind",
+          "elementId": "behind",
+          "type": "showExperience",
+          "target": "behind"
+        },
+        {
+          "name": "playD1",
+          "elementId": "d1",
+          "type": "showExperience",
+          "target": "d1"
+        },
+        {
+          "name": "playD2",
+          "elementId": "d2",
+          "type": "showExperience",
+          "target": "d2"
+        },
+        {
+          "name": "playWelcomeCenter",
+          "elementId": "welcome-center",
+          "type": "showExperience",
+          "target": "welcome-center"
+        }
       ]
     },
     {
@@ -32,28 +67,28 @@
         {
           "name": "playMarketplace",
           "elementId": "marketplace",
-          "type": "playSound",
-          "sound": "marketplace"
+          "type": "showExperience",
+          "target": "marketplace"
         },
         {
           "name": "playLibrary",
           "elementId": "library",
-          "type": "playSound",
-          "sound": "library"
+          "type": "showExperience",
+          "target": "library"
         },
         {
           "name": "playStore",
           "elementId": "store",
-          "type": "playSound",
-          "sound": "store"
+          "type": "showExperience",
+          "target": "store"
         }
       ]
     }
   ],
-  "sounds": [
+  "experiences": [
     {
       "name": "palms",
-      "file": "./sounds/palms.mp3"
+      "soundFile": "./sounds/palms.mp3"
     }
   ]
 }

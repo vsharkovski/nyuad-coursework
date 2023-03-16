@@ -1,17 +1,22 @@
+html,
 body {
-  padding: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: hidden;
   background-color: black;
 }
 
 .map {
+  padding: 3rem;
+  /* height: 100%;
+  width: auto; */
 }
 
 #c2-map {
-  padding: 4rem;
-}
-
-.trigger {
-  /* fill: rgb(50, 50, 50); */
+  padding-inline: 20vmin;
 }
 
 .trigger:hover {
