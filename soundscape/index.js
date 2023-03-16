@@ -46,6 +46,13 @@ for (let map of data.maps) {
   }
 }
 
+// Initialize back buttons.
+document.querySelectorAll(".back-button").forEach((button) => {
+  button.addEventListener("click", () => {
+    goBack();
+  });
+});
+
 // Find map to be initially active and show it.
 activeMap = data.maps.find((map) => map.name == "campus");
 if (activeMap === null) {
@@ -68,3 +75,14 @@ function showMap(targetMap) {
 
 // Function for showing an experience.
 function showExperience(experience) {}
+
+// Function for going back, either from a map or from an experience.
+function goBack() {
+  if (activeExperience == null) {
+    // Go to main map.
+    activeMap = data.maps.find((map) => map.name == "campus");
+    showMap(activeMap);
+  } else {
+    // Stop experience.
+  }
+}

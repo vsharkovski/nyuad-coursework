@@ -7,23 +7,37 @@ body {
 body {
   overflow: hidden;
   background-color: black;
+
+  --unhover-color: rgb(24, 24, 24);
+  --hover-color: rgb(80, 80, 80);
 }
 
 .map {
   padding: 3rem;
-  /* height: 100%;
-  width: auto; */
 }
 
-#c2-map {
+#c2-map > svg {
   padding-inline: 20vmin;
-}
-
-.trigger:hover {
-  cursor: pointer;
-  fill: rgb(80, 80, 80);
 }
 
 .hidden {
   display: none;
+}
+
+.trigger:hover {
+  cursor: pointer;
+  fill: var(--hover-color);
+}
+
+.back-button {
+  padding-inline: 1rem;
+  border-style: none;
+  background-color: rgba(0, 0, 0, 0);
+  color: rgba(100, 100, 100);
+  font-size: 5rem;
+}
+
+.back-button:hover {
+  cursor: pointer;
+  color: var(--hover-color);
 }
