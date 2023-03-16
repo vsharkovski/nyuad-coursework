@@ -4,6 +4,8 @@ import data from "./assets/data.json" assert { type: "json" };
 let activeMap = null;
 let activeExperience = null;
 
+const experienceWrapperElement = document.querySelector(".experience-wrapper");
+
 // Initialize triggers.
 for (let map of data.maps) {
   for (let trigger of map.triggers) {
@@ -16,7 +18,7 @@ for (let map of data.maps) {
     if (trigger.type == "changeMap") {
       // Change map.
       const newMap = data.maps.find((map) => map.name == trigger.target);
-      if (newMap === null) {
+      if (newMap === undefined) {
         console.error("Could not find target map with name", trigger.target);
       } else {
         element.addEventListener("click", () => {
@@ -29,7 +31,7 @@ for (let map of data.maps) {
       const newExperience = data.experiences.find(
         (exp) => exp.name == trigger.target
       );
-      if (newExperience === null) {
+      if (newExperience === undefined) {
         console.error(
           "Could not find target experience with name",
           trigger.target
@@ -55,7 +57,7 @@ document.querySelectorAll(".back-button").forEach((button) => {
 
 // Find map to be initially active and show it.
 activeMap = data.maps.find((map) => map.name == "campus");
-if (activeMap === null) {
+if (activeMap === undefined) {
   console.error("Could not find initial active map.");
 } else {
   showMap(activeMap);
@@ -74,15 +76,22 @@ function showMap(targetMap) {
 }
 
 // Function for showing an experience.
-function showExperience(experience) {}
+function showExperience(experience) {
+  // console.log("showing experience", experience);
+  activeExperience = experience;
+  experienceWrapperElement.classList.remove("hidden");
+}
 
 // Function for going back, either from a map or from an experience.
 function goBack() {
-  if (activeExperience == null) {
+  // console.log("going back. activeExp", activeExperience);
+  if (activeExperience) {
+    // Stop experience.
+    activeExperience = null;
+    experienceWrapperElement.classList.add("hidden");
+  } else {
     // Go to main map.
     activeMap = data.maps.find((map) => map.name == "campus");
     showMap(activeMap);
-  } else {
-    // Stop experience.
   }
 }

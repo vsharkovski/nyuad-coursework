@@ -5,11 +5,17 @@ body {
 }
 
 body {
-  overflow: hidden;
-  background-color: black;
-
   --unhover-color: rgb(24, 24, 24);
   --hover-color: rgb(80, 80, 80);
+  --light-grey-color: rgb(180, 180, 180);
+  --medium-grey-color: rgb(120, 120, 120);
+
+  overflow: hidden;
+  background-color: black;
+  color: var(--light-grey-color);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
 .map {
@@ -32,7 +38,7 @@ body {
 .back-button {
   border-style: none;
   background-color: rgba(0, 0, 0, 0);
-  color: rgba(100, 100, 100);
+  color: var(--medium-grey-color);
 }
 
 .back-button:hover {
@@ -44,4 +50,48 @@ body {
   position: fixed;
   padding-inline: 1rem;
   font-size: min(5rem, 10vmin);
+}
+
+.experience {
+  position: fixed;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--medium-grey-color);
+  border-radius: 1rem;
+  background-color: black;
+}
+
+.experience > .header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  gap: 1rem;
+}
+
+.experience > .header > h1 {
+  margin: 0;
+  font-weight: 500;
+}
+
+.experience > .header > span {
+  margin-bottom: 0.5rem;
+}
+
+.experience > .header > .back-button {
+  font-size: 1.25rem;
+  align-self: start;
+  margin-left: auto;
+}
+
+.experience > audio {
+  margin: 1rem;
 }

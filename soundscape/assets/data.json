@@ -89,6 +89,46 @@
     {
       "name": "palms",
       "soundFile": "./sounds/palms.mp3"
+    },
+    {
+      "name": "parking",
+      "soundFile": "./sounds/palms.mp3"
+    },
+    {
+      "name": "c3",
+      "soundFile": "./sounds/palms.mp3"
+    },
+    {
+      "name": "highline-a4",
+      "soundFile": "./sounds/palms.mp3"
+    },
+    {
+      "name": "behind",
+      "soundFile": "./sounds/palms.mp3"
+    },
+    {
+      "name": "d1",
+      "soundFile": "./sounds/palms.mp3"
+    },
+    {
+      "name": "d2",
+      "soundFile": "./sounds/palms.mp3"
+    },
+    {
+      "name": "welcome-center",
+      "soundFile": "./sounds/palms.mp3"
+    },
+    {
+      "name": "marketplace",
+      "soundFile": "./sounds/palms.mp3"
+    },
+    {
+      "name": "library",
+      "soundFile": "./sounds/palms.mp3"
+    },
+    {
+      "name": "store",
+      "soundFile": "./sounds/palms.mp3"
     }
   ]
 }
