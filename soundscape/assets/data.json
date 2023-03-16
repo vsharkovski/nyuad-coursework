@@ -3,59 +3,44 @@
     {
       "name": "campus",
       "svg": "./svg/campus.svg",
-      "triggers": ["goToC2", "playPalms"]
+      "triggers": [
+        {
+          "name": "goToC2",
+          "elementId": "c2",
+          "type": "changeMap",
+          "map": "c2"
+        },
+        {
+          "name": "playPalms",
+          "elementId": "palms",
+          "type": "playSound",
+          "sound": "palms"
+        }
+      ]
     },
     {
       "name": "c2",
       "svg": "./svg/c2.svg",
-      "triggers": ["playMarketplace", "playLibrary", "playStore"]
-    }
-  ],
-  "triggers": [
-    {
-      "name": "goToC2",
-      "active": false,
-      "x": 450,
-      "y": 150,
-      "radius": 50,
-      "type": "changeMap",
-      "map": "c2"
-    },
-    {
-      "name": "playPalms",
-      "active": false,
-      "x": 450,
-      "y": 150,
-      "radius": 50,
-      "type": "playSound",
-      "sound": "palms"
-    },
-    {
-      "name": "playMarketplace",
-      "active": false,
-      "x": 450,
-      "y": 150,
-      "radius": 0,
-      "type": "playSound",
-      "sound": "marketplace"
-    },
-    {
-      "name": "playLibrary",
-      "active": false,
-      "x": 450,
-      "y": 150,
-      "radius": 0,
-      "type": "playSound",
-      "sound": "library"
-    },
-    {
-      "name": "playStore",
-      "active": false,
-      "x": 450,
-      "y": 150,
-      "radius": 0,
-      "type": "playSound",
-      "sound": "store"
+      "triggers": [
+        {
+          "name": "playMarketplace",
+          "elementId": "marketplace",
+          "type": "playSound",
+          "sound": "marketplace"
+        },
+        {
+          "name": "playLibrary",
+          "elementId": "library",
+          "type": "playSound",
+          "sound": "library"
+        },
+        {
+          "name": "playStore",
+          "elementId": "store",
+          "type": "playSound",
+          "sound": "store"
+        }
+      ]
     }
   ],
   "sounds": [
