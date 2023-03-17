@@ -3,8 +3,12 @@ import data from "./assets/data.json" assert { type: "json" };
 // Initialize global variables.
 let activeMap = null;
 let activeExperience = null;
+let audio = null;
 
 const experienceWrapperElement = document.querySelector(".experience-wrapper");
+const experienceTitleElement = document.querySelector(".experience .title");
+const experienceRecordElement = document.querySelector(".experience .recorded");
+const experienceContentElement = document.querySelector(".experience .content");
 
 // Initialize triggers.
 for (let map of data.maps) {
@@ -77,16 +81,39 @@ function showMap(targetMap) {
 
 // Function for showing an experience.
 function showExperience(experience) {
-  // console.log("showing experience", experience);
-  activeExperience = experience;
+  // Replace children of content element with new paragraphs.
+  const paragraphs = experience.description.map((text) => {
+    const element = document.createElement("p");
+    element.appendChild(document.createTextNode(text));
+    return element;
+  });
+  experienceContentElement.replaceChildren(...paragraphs);
+
+  // Update other info.
+  experienceTitleElement.replaceChildren(
+    document.createTextNode(experience.title)
+  );
+  experienceRecordElement.replaceChildren(
+    document.createTextNode(experience.recorded)
+  );
+
+  // Play audio.
+  if (audio) audio.pause();
+  audio = new Audio(experience.soundFile);
+  audio.loop = true;
+  audio.volume = 0.1;
+  audio.addEventListener("loadeddata", () => audio.play());
+
+  // Make experience wrapper visible.
   experienceWrapperElement.classList.remove("hidden");
 }
 
 // Function for going back, either from a map or from an experience.
 function goBack() {
-  // console.log("going back. activeExp", activeExperience);
   if (activeExperience) {
-    // Stop experience.
+    // Stop audio and hide experience.
+    if (audio) audio.pause();
+    audio = null;
     activeExperience = null;
     experienceWrapperElement.classList.add("hidden");
   } else {

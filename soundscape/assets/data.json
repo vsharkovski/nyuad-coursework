@@ -88,47 +88,84 @@
   "experiences": [
     {
       "name": "palms",
-      "soundFile": "./sounds/palms.mp3"
+      "soundFile": "./assets/audio/temp.mp3",
+      "title": "Palms",
+      "recorded": "recorded 16 March, 6:55PM",
+      "description": [
+        "ajsdioajsdaoisjd",
+        " qweji oqwe oiqwje oiqwje ioqwej oqiwje ",
+        "zxj czxoi cjzxio cjiozx jcozx cjzx "
+      ]
     },
     {
       "name": "parking",
-      "soundFile": "./sounds/palms.mp3"
+      "soundFile": "./assets/audio/parking.mp3",
+      "title": "Underground Parking",
+      "recorded": "not recorded yet",
+      "description": []
     },
     {
       "name": "c3",
-      "soundFile": "./sounds/palms.mp3"
+      "soundFile": "./assets/audio/c3.mp3",
+      "title": "Arts Center",
+      "recorded": "not recorded yet",
+      "description": []
     },
     {
       "name": "highline-a4",
-      "soundFile": "./sounds/palms.mp3"
+      "soundFile": "./assets/audio/highline-a4.mp3",
+      "title": "Highline",
+      "recorded": "not recorded yet",
+      "description": []
     },
     {
       "name": "behind",
-      "soundFile": "./sounds/palms.mp3"
+      "soundFile": "./assets/audio/behind.mp3",
+      "title": "Behind C2",
+      "recorded": "not recorded yet",
+      "description": []
     },
     {
       "name": "d1",
-      "soundFile": "./sounds/palms.mp3"
+      "soundFile": "./assets/audio/d1.mp3",
+      "title": "East Dining Hall (D1)",
+      "recorded": "not recorded yet",
+      "description": []
     },
     {
       "name": "d2",
-      "soundFile": "./sounds/palms.mp3"
+      "soundFile": "./assets/audio/d2.mp3",
+      "title": "West Dining Hall (D2)",
+      "recorded": "not recorded yet",
+      "description": []
     },
     {
       "name": "welcome-center",
-      "soundFile": "./sounds/palms.mp3"
+      "soundFile": "./assets/audio/welcome-center.mp3",
+      "title": "Welcome Center",
+      "recorded": "not recorded yet",
+      "description": []
     },
     {
       "name": "marketplace",
-      "soundFile": "./sounds/palms.mp3"
+      "soundFile": "./assets/audio/marketplace.mp3",
+      "title": "Marketplace",
+      "recorded": "not recorded yet",
+      "description": []
     },
     {
       "name": "library",
-      "soundFile": "./sounds/palms.mp3"
+      "soundFile": "./assets/audio/library.mp3",
+      "title": "Library",
+      "recorded": "not recorded yet",
+      "description": []
     },
     {
       "name": "store",
-      "soundFile": "./sounds/palms.mp3"
+      "soundFile": "./assets/audio/store.mp3",
+      "title": "Convenience Store",
+      "recorded": "not recorded yet",
+      "description": []
     }
   ]
 }
