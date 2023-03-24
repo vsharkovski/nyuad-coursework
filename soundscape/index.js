@@ -85,6 +85,9 @@ experienceBackdropElement.addEventListener("click", () => {
   }
 });
 
+// Add day class to body.
+document.body.classList.add("night");
+
 // Function for showing a target map.
 function setMap(targetMap) {
   stopExperience();

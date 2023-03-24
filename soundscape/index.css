@@ -5,17 +5,38 @@ body {
 }
 
 body {
-  --unhover-color: rgb(24, 24, 24);
-  --hover-color: rgb(80, 80, 80);
-  --light-grey-color: rgb(180, 180, 180);
-  --medium-grey-color: rgb(120, 120, 120);
+  --color-background-day: rgb(253, 216, 168);
+  --color-background-night: rgb(7, 14, 36);
+  --color-unhovered-day: rgb(255, 236, 212);
+  --color-hovered-day: rgb(207, 188, 165);
+  --color-unhovered-night: rgb(24, 24, 24);
+  --color-hovered-night: rgb(80, 80, 80);
+  /* --color-light-grey: rgb(180, 180, 180);
+  --color-medium-grey: rgb(120, 120, 120);
+  --color-dark-grey: rgb(50, 50, 50); */
+  --color-primary-day: rgb(65, 54, 26);
+  --color-secondary-day: rgb(250, 207, 150);
+  --color-tertiary-day: rgb(226, 188, 135);
+  --color-primary-night: rgb(120, 120, 120);
+  --color-secondary-night: rgb(20, 20, 20);
+  --color-tertiary-night: rgb(180, 180, 180);
+
+  --color-transitions: color 2s ease-in, background-color 2s ease-in,
+    fill 2s ease-in, stroke 2s ease-in;
 
   overflow: hidden;
-  background-color: black;
-  color: var(--light-grey-color);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: var(--color-transitions);
   display: flex;
   flex-direction: column;
+}
+
+body.day {
+  background-color: var(--color-background-day);
+}
+
+body.night {
+  background-color: var(--color-background-night);
 }
 
 .map {
@@ -26,20 +47,68 @@ body {
   padding-inline: 20vmin;
 }
 
+.trigger {
+  transition: var(--color-transitions);
+  transition-duration: 0s;
+}
+
+.day .trigger {
+  fill: var(--color-unhovered-day);
+}
+
+.night .trigger {
+  fill: var(--color-unhovered-night);
+}
+
 .trigger:hover {
   cursor: pointer;
-  fill: var(--hover-color);
+}
+
+.day .trigger:hover {
+  fill: var(--color-hovered-day);
+}
+
+.night .trigger:hover {
+  fill: var(--color-hovered-night);
+}
+
+polygon,
+polyline path {
+  transition: var(--color-transitions);
+}
+
+.day polygon,
+.day polyline,
+.day path,
+.day rect,
+.day line {
+  stroke: var(--color-primary-day);
+}
+
+.night polygon,
+.night polyline,
+.night path,
+.night rect,
+.night line {
+  stroke: var(--color-primary-night);
 }
 
 .back-button {
   border-style: none;
   background-color: rgba(0, 0, 0, 0);
-  color: var(--medium-grey-color);
+}
+
+.day .back-button {
+  color: var(--color-primary-day);
+}
+
+.night .back-button {
+  color: var(--color-primary-night);
 }
 
 .back-button:hover {
   cursor: pointer;
-  color: var(--hover-color);
+  color: var(--color-hovered-night);
 }
 
 #c2-map .back-button {
@@ -76,9 +145,19 @@ body {
   padding: 1rem;
   border-width: 2px;
   border-style: solid;
-  border-color: var(--medium-grey-color);
   border-radius: 1rem;
-  background-color: black;
+}
+
+.day .experience {
+  color: var(--color-primary-day);
+  background-color: var(--color-secondary-day);
+  border-color: var(--color-tertiary-day);
+}
+
+.night .experience {
+  color: var(--color-primary-night);
+  background-color: var(--color-secondary-night);
+  border-color: var(--color-tertiary-night);
 }
 
 .experience > .header {
@@ -117,6 +196,7 @@ body {
   display: flex;
   justify-content: center;
   background-color: black;
+  color: white;
   z-index: 10;
 }
 
