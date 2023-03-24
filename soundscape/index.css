@@ -18,23 +18,6 @@ body {
   flex-direction: column;
 }
 
-.hidden {
-  display: none;
-}
-
-.appearing {
-  animation: 1s ease-in 0s appear;
-}
-
-@keyframes appear {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 .map {
   padding: 3rem;
 }
@@ -107,4 +90,21 @@ body {
 
 .experience > audio {
   margin: 1rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.appearing {
+  animation: 1s ease-in 0s appear;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

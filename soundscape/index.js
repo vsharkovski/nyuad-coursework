@@ -7,6 +7,7 @@ let audio = null;
 let audioTarget = null;
 
 const experienceWrapperElement = document.querySelector(".experience-wrapper");
+const experienceHeaderElement = document.querySelector(".experience .header");
 const experienceTitleElement = document.querySelector(".experience .title");
 const experienceRecordElement = document.querySelector(".experience .recorded");
 const experienceContentElement = document.querySelector(".experience .content");
@@ -88,21 +89,31 @@ function setExperience(experience) {
   activeExperience = experience;
 
   // Replace children of content element with new paragraphs.
+  const initialAppearanceDelay = 1;
+  const appearanceDuration = 8;
+
+  const getAppearanceDelay = (index) =>
+    (initialAppearanceDelay + index * appearanceDuration) * 1000;
+
+  const hideAndShowDelayed = (element, delay) => {
+    element.style.animationDuration = `${appearanceDuration}s`;
+    hide(element);
+    setTimeout(() => appear(element), delay);
+  };
+
   const paragraphs = experience.description.map((text, index) => {
     const element = document.createElement("p");
     element.appendChild(document.createTextNode(text));
-
-    // Add an appearing animation, delayed by the index.
-    const initialAppearanceDelay = 5;
-    const appearanceDuration = 10;
-    hide(element);
-    element.style.animationDuration = `${appearanceDuration}s`;
-    setTimeout(() => {
-      appear(element);
-    }, (initialAppearanceDelay + index * appearanceDuration) * 1000);
+    hideAndShowDelayed(element, getAppearanceDelay(index));
     return element;
   });
   experienceContentElement.replaceChildren(...paragraphs);
+
+  // Add delayed appearance animation on header.
+  hideAndShowDelayed(
+    experienceHeaderElement,
+    getAppearanceDelay(experience.description.length)
+  );
 
   // Update other info.
   experienceTitleElement.replaceChildren(
