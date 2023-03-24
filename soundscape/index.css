@@ -92,6 +92,22 @@ body {
   margin: 1rem;
 }
 
+.disclaimer {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  z-index: 10;
+}
+
+.disclaimer h1 {
+  margin-top: 20vh;
+}
+
 .hidden {
   display: none !important;
 }

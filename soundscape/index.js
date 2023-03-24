@@ -60,13 +60,21 @@ document.querySelectorAll(".back-button").forEach((button) => {
   });
 });
 
-// Find map to be initially active and show it.
-activeMap = data.maps.find((map) => map.name == "campus");
-if (activeMap === undefined) {
-  console.error("Could not find initial active map.");
-} else {
-  setMap(activeMap);
-}
+// Initialize disclaimer click event.
+const disclaimerElement = document.querySelector(".disclaimer");
+
+disclaimerElement.addEventListener("click", () => {
+  // Remove the disclaimer
+  disclaimerElement.remove();
+  
+  // Find map to be initially active and show it.
+  activeMap = data.maps.find((map) => map.name == "campus");
+  if (activeMap === undefined) {
+    console.error("Could not find initial active map.");
+  } else {
+    setMap(activeMap);
+  }
+});
 
 // Function for showing a target map.
 function setMap(targetMap) {
