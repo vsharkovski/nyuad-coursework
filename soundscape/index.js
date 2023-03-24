@@ -5,6 +5,7 @@ let activeMap = null;
 let activeExperience = null;
 let audio = null;
 let audioTarget = null;
+let currentTime = null;
 
 const experienceWrapperElement = document.querySelector(".experience-wrapper");
 const experienceBackdropElement = document.querySelector(
@@ -64,6 +65,16 @@ document.querySelectorAll(".back-button").forEach((button) => {
   });
 });
 
+// Initialize time button.
+document.querySelectorAll(".time-button").forEach((button) => {
+  button.addEventListener("click", () => {
+    switchTime();
+  });
+});
+
+// Make it day or night at the start.
+switchTime();
+
 // Initialize disclaimer click event.
 disclaimerElement.addEventListener("click", () => {
   // Remove the disclaimer.
@@ -84,9 +95,6 @@ experienceBackdropElement.addEventListener("click", () => {
     // stopExperience();
   }
 });
-
-// Add day class to body.
-document.body.classList.add("night");
 
 // Function for showing a target map.
 function setMap(targetMap) {
@@ -197,4 +205,18 @@ function hide(e, absolute) {
 function appear(e) {
   e.classList.remove("hidden", "dark");
   e.classList.add("appearing");
+}
+
+// Function for switching from day to night and vice versa.
+function switchTime() {
+  if (currentTime == "day") {
+    currentTime = "night";
+    document.body.classList.remove("day");
+    document.body.classList.add("night");
+  } else {
+    // currentTime can be "night" or null.
+    currentTime = "day";
+    document.body.classList.remove("night");
+    document.body.classList.add("day");
+  }
 }

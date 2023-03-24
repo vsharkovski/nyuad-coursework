@@ -93,25 +93,33 @@ polyline path {
   stroke: var(--color-primary-night);
 }
 
-.back-button {
+button {
   border-style: none;
   background-color: rgba(0, 0, 0, 0);
 }
 
-.day .back-button {
+.day button {
   color: var(--color-primary-day);
 }
 
-.night .back-button {
+.night button {
   color: var(--color-primary-night);
 }
 
-.back-button:hover {
+button:hover {
   cursor: pointer;
   color: var(--color-hovered-night);
 }
 
-#c2-map .back-button {
+button.time-button {
+  position: fixed;
+  padding-inline: 1rem;
+  font-size: min(3rem, 5vmin);
+  top: 0;
+  right: 0;
+}
+
+#c2-map button.back-button {
   position: fixed;
   padding-inline: 1rem;
   font-size: min(5rem, 10vmin);
@@ -177,7 +185,7 @@ polyline path {
   margin-bottom: 0.5rem;
 }
 
-.experience > .header > .back-button {
+.experience > .header > button {
   font-size: 1.25rem;
   align-self: start;
   margin-left: auto;
