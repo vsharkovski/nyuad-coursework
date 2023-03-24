@@ -66,7 +66,7 @@ const disclaimerElement = document.querySelector(".disclaimer");
 disclaimerElement.addEventListener("click", () => {
   // Remove the disclaimer
   disclaimerElement.remove();
-  
+
   // Find map to be initially active and show it.
   activeMap = data.maps.find((map) => map.name == "campus");
   if (activeMap === undefined) {
@@ -86,7 +86,7 @@ function setMap(targetMap) {
     if (map == targetMap) {
       appear(element);
     } else {
-      hide(element);
+      hide(element, true);
     }
   });
 }
@@ -105,7 +105,7 @@ function setExperience(experience) {
 
   const hideAndShowDelayed = (element, delay) => {
     element.style.animationDuration = `${appearanceDuration}s`;
-    hide(element);
+    hide(element, false);
     setTimeout(() => appear(element), delay);
   };
 
@@ -157,7 +157,7 @@ function stopExperience() {
 
   // Update variable and hide wrapper.
   activeExperience = null;
-  hide(experienceWrapperElement);
+  hide(experienceWrapperElement, true);
 }
 
 // Function for going back, either from a map or from an experience.
@@ -172,13 +172,17 @@ function goBack() {
 }
 
 // Function for hiding an element.
-function hide(e) {
-  e.classList.add("hidden");
+function hide(e, absolute) {
+  if (absolute) {
+    e.classList.add("hidden");
+  } else {
+    e.classList.add("dark");
+  }
   e.classList.remove("appearing");
 }
 
 // Function for making an element appear.
 function appear(e) {
-  e.classList.remove("hidden");
+  e.classList.remove("hidden", "dark");
   e.classList.add("appearing");
 }

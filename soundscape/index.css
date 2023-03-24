@@ -108,6 +108,10 @@ body {
   margin-top: 20vh;
 }
 
+.dark {
+  opacity: 0;
+}
+
 .hidden {
   display: none !important;
 }
