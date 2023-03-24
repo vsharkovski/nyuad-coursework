@@ -18,16 +18,29 @@ body {
   flex-direction: column;
 }
 
+.hidden {
+  display: none;
+}
+
+.appearing {
+  animation: 1s ease-in 0s appear;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .map {
   padding: 3rem;
 }
 
 #c2-map > svg {
   padding-inline: 20vmin;
-}
-
-.hidden {
-  display: none;
 }
 
 .trigger:hover {

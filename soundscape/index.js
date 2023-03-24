@@ -75,9 +75,9 @@ function setMap(targetMap) {
   data.maps.forEach((map) => {
     const element = document.getElementById(map.elementId);
     if (map == targetMap) {
-      element.classList.remove("hidden");
+      appear(element);
     } else {
-      element.classList.add("hidden");
+      hide(element);
     }
   });
 }
@@ -88,9 +88,18 @@ function setExperience(experience) {
   activeExperience = experience;
 
   // Replace children of content element with new paragraphs.
-  const paragraphs = experience.description.map((text) => {
+  const paragraphs = experience.description.map((text, index) => {
     const element = document.createElement("p");
     element.appendChild(document.createTextNode(text));
+
+    // Add an appearing animation, delayed by the index.
+    const initialAppearanceDelay = 5;
+    const appearanceDuration = 10;
+    hide(element);
+    element.style.animationDuration = `${appearanceDuration}s`;
+    setTimeout(() => {
+      appear(element);
+    }, (initialAppearanceDelay + index * appearanceDuration) * 1000);
     return element;
   });
   experienceContentElement.replaceChildren(...paragraphs);
@@ -116,7 +125,7 @@ function setExperience(experience) {
   });
 
   // Make experience wrapper visible.
-  experienceWrapperElement.classList.remove("hidden");
+  appear(experienceWrapperElement);
 }
 
 // Funciton for stopping to show the current experience.
@@ -129,7 +138,7 @@ function stopExperience() {
 
   // Update variable and hide wrapper.
   activeExperience = null;
-  experienceWrapperElement.classList.add("hidden");
+  hide(experienceWrapperElement);
 }
 
 // Function for going back, either from a map or from an experience.
@@ -141,4 +150,16 @@ function goBack() {
     activeMap = data.maps.find((map) => map.name == "campus");
     setMap(activeMap);
   }
+}
+
+// Function for hiding an element.
+function hide(e) {
+  e.classList.add("hidden");
+  e.classList.remove("appearing");
+}
+
+// Function for making an element appear.
+function appear(e) {
+  e.classList.remove("hidden");
+  e.classList.add("appearing");
 }
