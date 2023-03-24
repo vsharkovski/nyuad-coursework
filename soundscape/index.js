@@ -7,10 +7,14 @@ let audio = null;
 let audioTarget = null;
 
 const experienceWrapperElement = document.querySelector(".experience-wrapper");
+const experienceBackdropElement = document.querySelector(
+  ".experience-wrapper .backdrop"
+);
 const experienceHeaderElement = document.querySelector(".experience .header");
 const experienceTitleElement = document.querySelector(".experience .title");
 const experienceRecordElement = document.querySelector(".experience .recorded");
 const experienceContentElement = document.querySelector(".experience .content");
+const disclaimerElement = document.querySelector(".disclaimer");
 
 // Initialize triggers.
 for (let map of data.maps) {
@@ -61,10 +65,8 @@ document.querySelectorAll(".back-button").forEach((button) => {
 });
 
 // Initialize disclaimer click event.
-const disclaimerElement = document.querySelector(".disclaimer");
-
 disclaimerElement.addEventListener("click", () => {
-  // Remove the disclaimer
+  // Remove the disclaimer.
   disclaimerElement.remove();
 
   // Find map to be initially active and show it.
@@ -73,6 +75,13 @@ disclaimerElement.addEventListener("click", () => {
     console.error("Could not find initial active map.");
   } else {
     setMap(activeMap);
+  }
+});
+
+// Initialize experience wrapper backdrop click event when experience is shown.
+experienceBackdropElement.addEventListener("click", () => {
+  if (activeExperience) {
+    // stopExperience();
   }
 });
 
@@ -147,7 +156,7 @@ function setExperience(experience) {
   appear(experienceWrapperElement);
 }
 
-// Funciton for stopping to show the current experience.
+// Function for stopping to show the current experience.
 function stopExperience() {
   // Stop audio.
   if (audio) {
