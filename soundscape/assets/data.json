@@ -7,56 +7,71 @@
         {
           "name": "goToC2",
           "elementId": "c2",
+          "mapTimes": [],
           "type": "changeMap",
           "target": "c2"
         },
         {
-          "name": "playPalms",
+          "name": "playPalmsDay",
           "elementId": "palms",
+          "mapTimes": ["day"],
           "type": "showExperience",
-          "target": "palms"
+          "target": "palmsDay"
+        },
+        {
+          "name": "playPalmsNight",
+          "elementId": "palms",
+          "mapTimes": ["night"],
+          "type": "showExperience",
+          "target": "palmsNight"
         },
         {
           "name": "playParking",
           "elementId": "parking",
+          "mapTimes": ["day", "night"],
           "type": "showExperience",
           "target": "parking"
         },
         {
           "name": "playC3",
           "elementId": "c3",
+          "mapTimes": ["day", "night"],
           "type": "showExperience",
           "target": "c3"
         },
         {
-          "name": "playHighlineA4",
+          "name": "playHighlineDay",
           "elementId": "highline-a4",
+          "mapTimes": ["day"],
           "type": "showExperience",
-          "target": "highline-a4"
+          "target": "highlineDay"
         },
         {
-          "name": "playBehind",
+          "name": "playHighlineNight",
+          "elementId": "highline-a4",
+          "mapTimes": ["night"],
+          "type": "showExperience",
+          "target": "highlineNight"
+        },
+        {
+          "name": "playBehindDay",
           "elementId": "behind",
+          "mapTimes": ["day"],
           "type": "showExperience",
-          "target": "behind"
+          "target": "behindDay"
         },
         {
-          "name": "playD1",
-          "elementId": "d1",
+          "name": "playBehindNight",
+          "elementId": "behind",
+          "mapTimes": ["night"],
           "type": "showExperience",
-          "target": "d1"
+          "target": "behindNight"
         },
         {
           "name": "playD2",
           "elementId": "d2",
           "type": "showExperience",
           "target": "d2"
-        },
-        {
-          "name": "playWelcomeCenter",
-          "elementId": "welcome-center",
-          "type": "showExperience",
-          "target": "welcome-center"
         }
       ]
     },
@@ -65,32 +80,49 @@
       "elementId": "c2-map",
       "triggers": [
         {
+          "name": "playC2Entrance",
+          "elementId": "c2-entrance",
+          "mapTimes": ["day"],
+          "type": "showExperience",
+          "target": "c2Entrance"
+        },
+        {
           "name": "playMarketplace",
           "elementId": "marketplace",
+          "mapTimes": ["day", "night"],
           "type": "showExperience",
           "target": "marketplace"
         },
         {
           "name": "playLibrary",
           "elementId": "library",
+          "mapTimes": ["day", "night"],
           "type": "showExperience",
           "target": "library"
         },
         {
-          "name": "playStore",
+          "name": "playStoreDay",
           "elementId": "store",
+          "mapTimes": ["day"],
           "type": "showExperience",
-          "target": "store"
+          "target": "storeDay"
+        },
+        {
+          "name": "playStoreNight",
+          "elementId": "store",
+          "mapTimes": ["night"],
+          "type": "showExperience",
+          "target": "storeNight"
         }
       ]
     }
   ],
   "experiences": [
     {
-      "name": "palms",
-      "soundFile": "./assets/audio/temp.mp3",
+      "name": "palmsDay",
+      "soundFile": "./assets/audio/palms-and-wc-day.mp3",
       "title": "Palms",
-      "recorded": "recorded 16 March, 6:55PM",
+      "recorded": "recorded",
       "description": [
         "ajsdioajsdaoisjd",
         " qweji oqwe oiqwje oiqwje ioqwej oqiwje ",
@@ -98,73 +130,94 @@
       ]
     },
     {
+      "name": "palmsNight",
+      "soundFile": "./assets/audio/palms-and-wc-night.mp3",
+      "title": "Palms",
+      "recorded": "recorded",
+      "description": []
+    },
+    {
       "name": "parking",
-      "soundFile": "./assets/audio/parking.mp3",
-      "title": "Underground Parking",
-      "recorded": "not recorded yet",
+      "soundFile": "./assets/audio/basement-night.mp3",
+      "title": "Basement",
+      "recorded": "recorded",
       "description": []
     },
     {
       "name": "c3",
-      "soundFile": "./assets/audio/c3.mp3",
+      "soundFile": "./assets/audio/arts-center-night.mp3",
       "title": "Arts Center",
-      "recorded": "not recorded yet",
+      "recorded": "recorded",
       "description": []
     },
     {
-      "name": "highline-a4",
-      "soundFile": "./assets/audio/highline-a4.mp3",
+      "name": "highlineDay",
+      "soundFile": "./assets/audio/highline-day.mp3",
       "title": "Highline",
-      "recorded": "not recorded yet",
+      "recorded": "recorded",
       "description": []
     },
     {
-      "name": "behind",
-      "soundFile": "./assets/audio/behind.mp3",
-      "title": "Behind C2",
-      "recorded": "not recorded yet",
+      "name": "highlineNight",
+      "soundFile": "./assets/audio/highline-night.mp3",
+      "title": "Highline",
+      "recorded": "recorded",
       "description": []
     },
     {
-      "name": "d1",
-      "soundFile": "./assets/audio/d1.mp3",
-      "title": "East Dining Hall (D1)",
-      "recorded": "not recorded yet",
+      "name": "behindDay",
+      "soundFile": "./assets/audio/behind-c2-day.mp3",
+      "title": "Behind Campus Center",
+      "recorded": "recorded",
+      "description": []
+    },
+    {
+      "name": "behindNight",
+      "soundFile": "./assets/audio/behind-c2-night.mp3",
+      "title": "Behind Campus Center",
+      "recorded": "recorded",
       "description": []
     },
     {
       "name": "d2",
-      "soundFile": "./assets/audio/d2.mp3",
+      "soundFile": "./assets/audio/d2-day.mp3",
       "title": "West Dining Hall (D2)",
-      "recorded": "not recorded yet",
+      "recorded": "recorded",
       "description": []
     },
     {
-      "name": "welcome-center",
-      "soundFile": "./assets/audio/welcome-center.mp3",
-      "title": "Welcome Center",
-      "recorded": "not recorded yet",
+      "name": "c2Entrance",
+      "soundFile": "./assets/audio/c2-entrance-and-stairs-day.mp3",
+      "title": "Entering Campus Center",
+      "recorded": "recorded",
       "description": []
     },
     {
       "name": "marketplace",
-      "soundFile": "./assets/audio/marketplace.mp3",
+      "soundFile": "./assets/audio/marketplace-night.mp3",
       "title": "Marketplace",
-      "recorded": "not recorded yet",
+      "recorded": "recorded",
       "description": []
     },
     {
       "name": "library",
-      "soundFile": "./assets/audio/library.mp3",
+      "soundFile": "./assets/audio/library-night.mp3",
       "title": "Library",
-      "recorded": "not recorded yet",
+      "recorded": "recorded",
       "description": []
     },
     {
-      "name": "store",
-      "soundFile": "./assets/audio/store.mp3",
+      "name": "storeDay",
+      "soundFile": "./assets/audio/convenience-store-day.mp3",
       "title": "Convenience Store",
-      "recorded": "not recorded yet",
+      "recorded": "recorded",
+      "description": []
+    },
+    {
+      "name": "storeNight",
+      "soundFile": "./assets/audio/convenience-store-night.mp3",
+      "title": "Convenience Store",
+      "recorded": "recorded",
       "description": []
     }
   ]

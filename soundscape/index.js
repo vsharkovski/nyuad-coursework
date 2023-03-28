@@ -22,6 +22,14 @@ for (let map of data.maps) {
   for (let trigger of map.triggers) {
     const element = document.getElementById(trigger.elementId);
 
+    if (!element) {
+      console.error(
+        "Could not find trigger element with id",
+        trigger.elementId
+      );
+      continue;
+    }
+
     // Add "trigger" class to the DOM element.
     element.classList.add("trigger");
 
