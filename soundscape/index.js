@@ -217,14 +217,34 @@ function appear(e) {
 
 // Function for switching from day to night and vice versa.
 function switchTime() {
-  if (currentTime == "day") {
-    currentTime = "night";
-    document.body.classList.remove("day");
-    document.body.classList.add("night");
-  } else {
-    // currentTime can be "night" or null.
-    currentTime = "day";
-    document.body.classList.remove("night");
-    document.body.classList.add("day");
+  // currentTime can initially be "night" or null.
+  const timeSwitchingFrom = currentTime;
+  const timeSwitchingTo = currentTime == "day" ? "night" : "day";
+
+  document.body.classList.remove(timeSwitchingFrom);
+  document.body.classList.add(timeSwitchingTo);
+
+  // Make all trigger elements for this time visible.
+  for (let map of data.maps) {
+    const triggerElementsAndVisibility = map.triggers
+      .filter((trigger) => trigger.type == "showExperience")
+      .map((trigger) => [
+        document.getElementById(trigger.elementId),
+        trigger.mapTimes.includes(timeSwitchingTo),
+      ]);
+
+    // First hide all trigger elements.
+    for (let [element, _] of triggerElementsAndVisibility) {
+      hide(element, true);
+    }
+
+    // Then show appropriate elements.
+    for (let [element, visibility] of triggerElementsAndVisibility) {
+      if (visibility) {
+        appear(element);
+      }
+    }
   }
+
+  currentTime = timeSwitchingTo;
 }

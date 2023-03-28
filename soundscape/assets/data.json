@@ -7,7 +7,7 @@
         {
           "name": "goToC2",
           "elementId": "c2",
-          "mapTimes": [],
+          "mapTimes": ["day", "night"],
           "type": "changeMap",
           "target": "c2"
         },
@@ -70,6 +70,7 @@
         {
           "name": "playD2",
           "elementId": "d2",
+          "mapTimes": ["day", "night"],
           "type": "showExperience",
           "target": "d2"
         }
@@ -121,7 +122,7 @@
     {
       "name": "palmsDay",
       "soundFile": "./assets/audio/palms-and-wc-day.mp3",
-      "title": "Palms",
+      "title": "Palms day",
       "recorded": "recorded",
       "description": [
         "ajsdioajsdaoisjd",
@@ -132,7 +133,7 @@
     {
       "name": "palmsNight",
       "soundFile": "./assets/audio/palms-and-wc-night.mp3",
-      "title": "Palms",
+      "title": "Palms night",
       "recorded": "recorded",
       "description": []
     },
