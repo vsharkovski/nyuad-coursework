@@ -9,15 +9,12 @@ body {
   --color-background-night: rgb(7, 14, 36);
   --color-unhovered-day: rgb(255, 236, 212);
   --color-hovered-day: rgb(207, 188, 165);
-  --color-unhovered-night: rgb(24, 24, 24);
+  --color-unhovered-night: rgb(63, 46, 109);
   --color-hovered-night: rgb(80, 80, 80);
-  /* --color-light-grey: rgb(180, 180, 180);
-  --color-medium-grey: rgb(120, 120, 120);
-  --color-dark-grey: rgb(50, 50, 50); */
   --color-primary-day: rgb(65, 54, 26);
   --color-secondary-day: rgb(250, 207, 150);
   --color-tertiary-day: rgb(226, 188, 135);
-  --color-primary-night: rgb(120, 120, 120);
+  --color-primary-night: rgb(201, 201, 201);
   --color-secondary-night: rgb(20, 20, 20);
   --color-tertiary-night: rgb(180, 180, 180);
 
