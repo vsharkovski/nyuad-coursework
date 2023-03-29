@@ -111,12 +111,17 @@ button:hover {
   color: var(--color-hovered-night);
 }
 
-button.time-button {
+.button-list {
   position: fixed;
-  padding-inline: 1rem;
-  font-size: min(3rem, 5vmin);
   top: 0;
   right: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.button-list button {
+  padding-inline: 1rem;
+  font-size: min(3rem, 5vmin);
 }
 
 #c2-map button.back-button {

@@ -71,18 +71,21 @@ for (let map of data.maps) {
 }
 
 // Initialize back buttons.
-document.querySelectorAll(".back-button").forEach((button) => {
-  button.addEventListener("click", () => {
-    goBack();
-  });
-});
+document
+  .querySelectorAll(".back-button")
+  .forEach((button) => button.addEventListener("click", goBack));
 
 // Initialize time button.
-document.querySelectorAll(".time-button").forEach((button) => {
-  button.addEventListener("click", () => {
-    switchTime();
-  });
-});
+document
+  .querySelectorAll(".time-button")
+  .forEach((button) => button.addEventListener("click", switchTime));
+
+// Initialize help button.
+document
+  .querySelectorAll(".help-button")
+  .forEach((button) =>
+    button.addEventListener("click", () => appear(disclaimerElement))
+  );
 
 // Make it day or night at the start.
 switchTime();
@@ -90,7 +93,7 @@ switchTime();
 // Initialize disclaimer click event.
 disclaimerElement.addEventListener("click", () => {
   // Remove the disclaimer.
-  disclaimerElement.remove();
+  hide(disclaimerElement, true);
 
   // Find map to be initially active and show it.
   activeMap = data.maps.find((map) => map.name == "campus");
