@@ -149,7 +149,7 @@ button.time-button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
   padding: 1rem;
   border-width: 2px;
   border-style: solid;
@@ -191,9 +191,9 @@ button.time-button {
   margin-left: auto;
 }
 
-.experience > audio {
-  margin: 1rem;
-}
+/* .experience audio {
+  margin-top: 2rem;
+} */
 
 .disclaimer {
   height: 100%;
@@ -202,14 +202,12 @@ button.time-button {
   top: 0;
   left: 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 12rem;
   background-color: black;
   color: white;
   z-index: 10;
-}
-
-.disclaimer h1 {
-  margin-top: 20vh;
 }
 
 .dark {

@@ -15,6 +15,7 @@ const experienceHeaderElement = document.querySelector(".experience .header");
 const experienceTitleElement = document.querySelector(".experience .title");
 const experienceRecordElement = document.querySelector(".experience .recorded");
 const experienceContentElement = document.querySelector(".experience .content");
+const audioContainerElement = document.querySelector(".audio-container");
 const disclaimerElement = document.querySelector(".disclaimer");
 
 // Initialize triggers.
@@ -145,11 +146,11 @@ function setExperience(experience) {
   });
   experienceContentElement.replaceChildren(...paragraphs);
 
-  // Add delayed appearance animation on header.
-  hideAndShowDelayed(
-    experienceHeaderElement,
-    getAppearanceDelay(experience.description.length)
-  );
+  // // Add delayed appearance animation on header.
+  // hideAndShowDelayed(
+  //   experienceHeaderElement,
+  //   getAppearanceDelay(experience.description.length)
+  // );
 
   // Update other info.
   experienceTitleElement.replaceChildren(
@@ -162,14 +163,18 @@ function setExperience(experience) {
   // Play audio.
   audio = new Audio(experience.soundFile);
   audio.loop = true;
-  audio.volume = 0.1;
-
+  audio.volume = 1;
+  audio.controls = true;
+  
   audioTarget = experience.soundFile;
   audio.addEventListener("loadeddata", () => {
     if (audioTarget == experience.soundFile) {
       audio.play();
     }
   });
+
+  // Replace the old audio element with the new element.
+  audioContainerElement.replaceChildren(audio);
 
   // Make experience wrapper visible.
   appear(experienceWrapperElement);
