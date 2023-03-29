@@ -35,16 +35,19 @@ for (let map of data.maps) {
     element.classList.add("trigger");
 
     // Set up click event based on event type.
+    const ifAtTriggerTime = (callback) => {
+      if (trigger.mapTimes.includes(currentTime)) callback();
+    };
+
     if (trigger.type == "changeMap") {
       // Change map.
       const newMap = data.maps.find((map) => map.name == trigger.target);
       if (newMap === undefined) {
         console.error("Could not find target map with name", trigger.target);
       } else {
-        element.addEventListener("click", () => {
-          activeMap = newMap;
-          setMap(newMap);
-        });
+        element.addEventListener("click", () =>
+          ifAtTriggerTime(() => setMap(newMap))
+        );
       }
     } else if (trigger.type == "showExperience") {
       // Change experience.
@@ -57,9 +60,9 @@ for (let map of data.maps) {
           trigger.target
         );
       } else {
-        element.addEventListener("click", () => {
-          setExperience(newExperience);
-        });
+        element.addEventListener("click", () =>
+          ifAtTriggerTime(() => setExperience(newExperience))
+        );
       }
     } else {
       console.error("Trigger", trigger.name, "has unknown type", trigger.type);
@@ -108,6 +111,7 @@ experienceBackdropElement.addEventListener("click", () => {
 // Function for showing a target map.
 function setMap(targetMap) {
   stopExperience();
+  activeMap = targetMap;
 
   // Show map.
   data.maps.forEach((map) => {
@@ -165,7 +169,7 @@ function setExperience(experience) {
   audio.loop = true;
   audio.volume = 1;
   audio.controls = true;
-  
+
   audioTarget = experience.soundFile;
   audio.addEventListener("loadeddata", () => {
     if (audioTarget == experience.soundFile) {
