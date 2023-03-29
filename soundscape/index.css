@@ -70,7 +70,10 @@ body.night {
 }
 
 polygon,
-polyline path {
+polyline,
+path,
+rect,
+line {
   transition: var(--color-transitions);
 }
 
