@@ -4,14 +4,11 @@ const int echo1Pin = 3;
 const int trig2Pin = 5;
 const int echo2Pin = 6;
 
-// Other constants.
-const float minDistance = 500.0f;
-const float maxDistance = 1000.0f;
-
 void setupP5();
 void communicateP5();
 void trackPosition();
 float getSensorResult(int, int);
+float mapFloat(float, float);
 
 float X, Y;
 
@@ -24,14 +21,13 @@ void setup() {
   pinMode(echo1Pin, INPUT);
   pinMode(echo2Pin, INPUT);
 
-  // setupP5();
+  setupP5();
 }
 
 void loop() {
-  trackPosition();
-  Serial.print(X);
-  Serial.print("\t");
-  Serial.println(Y);
+  // Serial.print(X);
+  // Serial.print("\t");
+  // Serial.println(Y);
   communicateP5();
 }
 
@@ -39,7 +35,7 @@ void setupP5() {
   // Do handshake.
   while (Serial.available() <= 0) {
     digitalWrite(LED_BUILTIN, HIGH);
-    Serial.println("0");
+    Serial.println("0,0");
     delay(300);
     digitalWrite(LED_BUILTIN, LOW);
     delay(50);
@@ -54,8 +50,11 @@ void communicateP5() {
     int x = Serial.parseInt();
 
     if (Serial.read() == '\n') {
-      delay(500);
-      Serial.println("hello,from,arduino");
+      trackPosition();
+      Serial.print(X);
+      Serial.print(",");
+      Serial.println(Y);
+      delay(100);
     }
   }
 
@@ -69,17 +68,18 @@ void trackPosition() {
   delay(10);
   d2 = getSensorResult(trig2Pin, echo2Pin);
   
-  d1 = constrain(d1, 0, 500);
-  d2 = constrain(d2, 0, 500);
+  d1 = constrain(d1, 10, 150);
+  d2 = constrain(d2, 10, 150);
 
   // Serial.print(d1);
   // Serial.print("\t");
   // Serial.println(d2);
 
-  X = d1;
-  Y = d2;
+  // X = d1;
+  // Y = d2;
 
-  delay(200);
+  X = mapFloat01((float)d1, 10.0f, 150.0f);
+  Y = mapFloat01((float)d2, 10.0f, 150.0f);
 }
 
 void trackPosition2() {
@@ -88,7 +88,7 @@ void trackPosition2() {
   float dist = 70.0f; // Between sensors
 
   d1 = getSensorResult(trig1Pin, echo1Pin);
-  delay(10);
+  delay(30);
   d2 = getSensorResult(trig2Pin, echo2Pin);
 
   theta = acos((((d1*d1)+(dist*dist)-(d2*d2)))/(2.0f*d1*dist));
@@ -129,4 +129,8 @@ float getSensorResult(int trigPin, int echoPin) {
   float distance = (float)duration * 343.0f / 2000.0f;
 
   return distance;
+}
+
+float mapFloat01(float x, float minX, float maxX) {
+  return (x - minX) / (maxX - minX);
 }
