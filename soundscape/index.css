@@ -149,7 +149,7 @@ button:hover {
 .experience {
   position: fixed;
   left: 50%;
-  top: 30%;
+  top: 40%;
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
@@ -194,6 +194,10 @@ button:hover {
   font-size: 1.25rem;
   align-self: start;
   margin-left: auto;
+}
+
+.experience > .content {
+  text-align: center;
 }
 
 /* .experience audio {
