@@ -1,0 +1,301 @@
+{
+  "maps": [
+    {
+      "name": "campus",
+      "elementId": "campus-map",
+      "triggers": [
+        {
+          "name": "goToC2",
+          "elementId": "c2",
+          "mapTimes": ["day", "night"],
+          "type": "changeMap",
+          "target": "c2"
+        },
+        {
+          "name": "playPalmsDay",
+          "elementId": "palms",
+          "mapTimes": ["day"],
+          "type": "showExperience",
+          "target": "palmsDay"
+        },
+        {
+          "name": "playPalmsNight",
+          "elementId": "palms",
+          "mapTimes": ["night"],
+          "type": "showExperience",
+          "target": "palmsNight"
+        },
+        {
+          "name": "playParking",
+          "elementId": "parking",
+          "mapTimes": ["day", "night"],
+          "type": "showExperience",
+          "target": "parking"
+        },
+        {
+          "name": "playC3",
+          "elementId": "c3",
+          "mapTimes": ["day", "night"],
+          "type": "showExperience",
+          "target": "c3"
+        },
+        {
+          "name": "playHighlineDay",
+          "elementId": "highline-a4",
+          "mapTimes": ["day"],
+          "type": "showExperience",
+          "target": "highlineDay"
+        },
+        {
+          "name": "playHighlineNight",
+          "elementId": "highline-a4",
+          "mapTimes": ["night"],
+          "type": "showExperience",
+          "target": "highlineNight"
+        },
+        {
+          "name": "playBehindDay",
+          "elementId": "behind",
+          "mapTimes": ["day"],
+          "type": "showExperience",
+          "target": "behindDay"
+        },
+        {
+          "name": "playBehindNight",
+          "elementId": "behind",
+          "mapTimes": ["night"],
+          "type": "showExperience",
+          "target": "behindNight"
+        },
+        {
+          "name": "playD2",
+          "elementId": "d2",
+          "mapTimes": ["day", "night"],
+          "type": "showExperience",
+          "target": "d2"
+        }
+      ]
+    },
+    {
+      "name": "c2",
+      "elementId": "c2-map",
+      "triggers": [
+        {
+          "name": "playC2Entrance",
+          "elementId": "c2-entrance",
+          "mapTimes": ["day"],
+          "type": "showExperience",
+          "target": "c2Entrance"
+        },
+        {
+          "name": "playMarketplace",
+          "elementId": "marketplace",
+          "mapTimes": ["day", "night"],
+          "type": "showExperience",
+          "target": "marketplace"
+        },
+        {
+          "name": "playLibrary",
+          "elementId": "library",
+          "mapTimes": ["day", "night"],
+          "type": "showExperience",
+          "target": "library"
+        },
+        {
+          "name": "playStoreDay",
+          "elementId": "store",
+          "mapTimes": ["day"],
+          "type": "showExperience",
+          "target": "storeDay"
+        },
+        {
+          "name": "playStoreNight",
+          "elementId": "store",
+          "mapTimes": ["night"],
+          "type": "showExperience",
+          "target": "storeNight"
+        }
+      ]
+    }
+  ],
+  "experiences": [
+    {
+      "name": "palmsDay",
+      "soundFile": "./assets/audio/palms-and-wc-day.mp3",
+      "title": "Palms, day",
+      "recorded": "recorded 12pm, March 24, 2023",
+      "description": [
+        "birds",
+        "wind",
+        "calm",
+        "talk",
+        "fountain",
+        "car",
+        "workers"
+      ]
+    },
+    {
+      "name": "palmsNight",
+      "soundFile": "./assets/audio/palms-and-wc-night.mp3",
+      "title": "Palms, night",
+      "recorded": "recorded 8pm, March 27, 2023",
+      "description": [
+        "distant",
+        "stone",
+        "echo",
+        "strong wind",
+        "motor",
+        "talk"
+      ]
+    },
+    {
+      "name": "parking",
+      "soundFile": "./assets/audio/basement-night.mp3",
+      "title": "Basement",
+      "recorded": "recorded 8pm, March 27, 2023",
+      "description": [
+        "odd",
+        "grey",
+        "endless",
+        "liminality",
+        "quiet",
+        "eternity",
+        "horror",
+        "machine"
+      ]
+    },
+    {
+      "name": "c3",
+      "soundFile": "./assets/audio/arts-center-night.mp3",
+      "title": "Arts Center",
+      "recorded": "recorded 8pm, March 27, 2023",
+      "description": ["special", "AC", "cold", "echo", "hum", "chat", "clack"]
+    },
+    {
+      "name": "highlineDay",
+      "soundFile": "./assets/audio/highline-day.mp3",
+      "title": "Highline, day",
+      "recorded": "recorded 12pm, March 24, 2023",
+      "description": [
+        "birds",
+        "wind",
+        "owl",
+        "sun hot",
+        "call",
+        "bird conversation",
+        "small world",
+        "outside AC vents"
+      ]
+    },
+    {
+      "name": "highlineNight",
+      "soundFile": "./assets/audio/highline-night.mp3",
+      "title": "Highline, night",
+      "recorded": "recorded 8pm, March 27, 2023",
+      "description": ["crickets", "air", "unknown", "wind"]
+    },
+    {
+      "name": "behindDay",
+      "soundFile": "./assets/audio/behind-c2-day.mp3",
+      "title": "Behind Campus Center, day",
+      "recorded": "recorded 12pm, March 24, 2023",
+      "description": ["huge", "empty", "desert", "sand wind", "huge AC vents"]
+    },
+    {
+      "name": "behindNight",
+      "soundFile": "./assets/audio/behind-c2-night.mp3",
+      "title": "Behind Campus Center, night",
+      "recorded": "recorded 8pm, March 27, 2023",
+      "description": [
+        "wind",
+        "huge",
+        "dark",
+        "sky",
+        "sand",
+        "strange machine",
+        "clean the air clean the air"
+      ]
+    },
+    {
+      "name": "d2",
+      "soundFile": "./assets/audio/d2-day.mp3",
+      "title": "East Dining Hall",
+      "recorded": "recorded 12pm, March 24, 2023",
+      "description": [
+        "talk",
+        "door",
+        "AC",
+        "chat",
+        "clink",
+        "plate",
+        "walk",
+        "serving",
+        "laugh"
+      ]
+    },
+    {
+      "name": "c2Entrance",
+      "soundFile": "./assets/audio/c2-entrance-and-stairs-day.mp3",
+      "title": "Entering Campus Center",
+      "recorded": "recorded 12pm, March 24, 2023",
+      "description": ["big", "clean", "hollow", "phone", "laugh", "nothing"]
+    },
+    {
+      "name": "marketplace",
+      "soundFile": "./assets/audio/marketplace-night.mp3",
+      "title": "Marketplace",
+      "recorded": "recorded 8pm, March 27, 2023",
+      "description": [
+        "chat",
+        "study",
+        "rest",
+        "empty",
+        "couches",
+        "chairs",
+        "melodic freezer"
+      ]
+    },
+    {
+      "name": "library",
+      "soundFile": "./assets/audio/library-night.mp3",
+      "title": "Library",
+      "recorded": "recorded 8pm, March 27, 2023",
+      "description": [
+        "focus",
+        "work",
+        "quiet not empty",
+        "carpet walk",
+        "pen click",
+        "chair squeak"
+      ]
+    },
+    {
+      "name": "storeDay",
+      "soundFile": "./assets/audio/convenience-store-day.mp3",
+      "title": "Convenience Store, day",
+      "recorded": "recorded 12pm, March 24, 2023",
+      "description": [
+        "fridge",
+        "freezer",
+        "work talk",
+        "commodity",
+        "price",
+        "move",
+        "buy"
+      ]
+    },
+    {
+      "name": "storeNight",
+      "soundFile": "./assets/audio/convenience-store-night.mp3",
+      "title": "Convenience Store, night",
+      "recorded": "recorded 8pm, March 27, 2023",
+      "description": [
+        "busy",
+        "waiting",
+        "laughing",
+        "snack sugar ice cream banana",
+        "energy"
+      ]
+    }
+  ]
+}
