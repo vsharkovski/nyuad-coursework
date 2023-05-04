@@ -2,51 +2,79 @@ TX = 9
 TY = 9
 
 symbol_map = {
-    "tbb1": "Tile Shape BrickBlue rx ry tx ty 1",
-    
-    "tdb1": ["Tile Shape DoorBlue rx ry tx ty 1", "Trigger None rx ry tx ty 1"],
-    
+    "tuw1": "Tile Shape UnderwaterWall rx ry tx ty 1",
+    "tud1": ["Tile Shape UnderwaterDoor rx ry tx ty 1", "Trigger None None rx ry tx ty 1"],
+    "nbub": ["NPC Shape Bubble rx ry tx ty 1"],
+
+    "tcw1": "Tile Shape CityWall rx ry tx ty 1",
+    "tcd1": ["Tile Shape CityDoor rx ry tx ty 1", "Trigger None None rx ry tx ty 1"],
+
+    "tsw1": "Tile Shape SnowWall rx ry tx ty 1",
+    "tsd1": ["Tile Shape SnowDoor rx ry tx ty 1", "Trigger None None rx ry tx ty 1"],
+
     "plr1": "Player rx ry tx ty 48 48 5",
     "plr2": "Player rx ry tx ty 48 48 8",
 
-    "trg2": "Trigger TriggerPurple rx ry tx ty 2",
-    "trg3": "Trigger TriggerPurple rx ry tx ty 3",
-    "trg4": "Trigger TriggerPurple rx ry tx ty 4",
+    "trg2": "Trigger Shape TriggerPurple rx ry tx ty 2",
+    "trg3": "Trigger Shape TriggerPurple rx ry tx ty 3",
+    "trg4": "Trigger Shape TriggerPurple rx ry tx ty 4",
+    "trg5": "Trigger Shape TriggerPurple rx ry tx ty 5",
+    "trg6": "Trigger Shape TriggerPurple rx ry tx ty 6",
+    "trg7": "Trigger Shape TriggerPurple rx ry tx ty 7",
+    "trg8": "Trigger Shape TriggerPurple rx ry tx ty 8",
 }
 
 levels = []
 
 levels.append([1, """
-DefaultBG #000000
+DefaultBG royalblue
 
 Room 0 0
-tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1
-tbb1 plr1 .... .... .... .... .... .... tbb1
-tbb1 .... .... trg3 .... trg4 .... .... tbb1
-tbb1 .... .... .... .... .... .... .... tbb1
-tbb1 .... .... .... .... .... .... .... tbb1
-tbb1 .... .... .... .... .... .... .... tbb1
-tbb1 .... .... .... .... .... .... .... tbb1
-tbb1 .... .... .... .... .... .... .... tbb1
-tbb1 tbb1 tbb1 tbb1 tdb1 tbb1 tbb1 tbb1 tbb1
+tuw1 tuw1 tuw1 tuw1 tuw1 tuw1 tuw1 tuw1 tuw1
+tuw1 plr1 .... .... .... .... .... .... tuw1
+tuw1 .... nbub trg3 tuw1 trg4 .... .... tuw1
+tuw1 .... nbub .... tuw1 nbub .... .... tuw1
+tuw1 .... tuw1 nbub trg5 .... nbub .... tuw1
+tuw1 .... .... tuw1 tuw1 tuw1 nbub .... tuw1
+tuw1 .... .... nbub trg6 nbub .... .... tuw1
+tuw1 .... .... .... .... .... .... .... tuw1
+tuw1 tuw1 tuw1 tuw1 tud1 tuw1 tuw1 tuw1 tuw1
 
 Room 0 1
 .... .... .... .... trg2 .... .... .... ....
 """])
 
 levels.append([2, """
-DefaultBG #ffc17a
+DefaultBG dimgrey
 
 Room 0 0
-tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1 tbb1
-tbb1 plr2 .... .... .... .... .... .... tbb1
-tbb1 .... .... .... trg3 .... .... .... tbb1
-tbb1 .... .... .... .... .... .... .... tbb1
-tbb1 .... .... .... trg4 .... .... .... tbb1
-tbb1 .... .... .... .... .... .... .... tbb1
-tbb1 .... .... .... .... .... .... .... tbb1
-tbb1 .... .... .... .... .... .... .... tbb1
-tbb1 tbb1 tbb1 tbb1 tdb1 tbb1 tbb1 tbb1 tbb1
+tcw1 tcw1 tcw1 tcw1 tcw1 tcw1 tcw1 tcw1 tcw1
+tcw1 plr2 .... .... .... .... .... .... tcw1
+tcw1 .... .... .... trg3 .... .... .... tcw1
+tcw1 .... .... .... .... .... .... .... tcw1
+tcw1 .... .... .... trg4 .... .... .... tcw1
+tcw1 .... .... .... .... .... .... .... tcw1
+tcw1 .... .... .... .... .... .... .... tcw1
+tcw1 .... .... .... .... .... .... .... tcw1
+tcw1 tcw1 tcw1 tcw1 tcd1 tcw1 tcw1 tcw1 tcw1
+
+Room 0 1
+.... .... .... .... trg2 .... .... .... ....
+"""])
+
+levels.append([3, """
+DefaultBG white
+
+Room 0 0
+tsw1 tsw1 tsw1 tsw1 tsw1 tsw1 tsw1 tsw1 tsw1
+tsw1 plr1 .... .... .... .... .... .... tsw1
+tsw1 .... .... .... .... .... .... .... tsw1
+tsw1 .... .... .... .... .... .... .... tsw1
+tsw1 .... .... .... .... .... .... .... tsw1
+tsw1 .... trg3 .... .... .... trg4 .... tsw1
+tsw1 .... .... .... .... .... .... .... tsw1
+tsw1 .... .... .... .... .... .... .... tsw1
+tsw1 tsw1 tsw1 tsw1 tsd1 tsw1 tsw1 tsw1 tsw1
 
 Room 0 1
 .... .... .... .... trg2 .... .... .... ....
@@ -80,6 +108,9 @@ for [levelNumber, level] in levels:
             for tx in range(len(words)):
                 word = words[tx]
                 if word not in symbol_map:
+                    if word != "....":
+                        print(f"Symbol not found: {word} at room ({rx}, {ry}), tile ({tx}, {ty})")
+                    
                     continue
 
                 unmapped_lines = symbol_map[word]
@@ -88,8 +119,18 @@ for [levelNumber, level] in levels:
                     unmapped_lines = [unmapped_lines]
                     index = 0
                 
+                string_map = {
+                    " rx ": f" {str(rx)} ",
+                    " ry ": f" {str(ry)} ",
+                    " tx ": f" {str(tx)} ",
+                    " ty ": f" {str(ty)} "
+                }
+
                 for unmapped in unmapped_lines:
-                    mapped = unmapped.replace("rx", str(rx)).replace("ry", str(ry)).replace("tx", str(tx)).replace("ty", str(ty))
+                    mapped = unmapped
+                    for (a, b) in string_map.items():
+                        mapped = mapped.replace(a, b)
+
                     mapped_lines[index].append(mapped)
             
             ty += 1
