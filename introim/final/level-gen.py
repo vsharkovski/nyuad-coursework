@@ -2,20 +2,28 @@ TX = 9
 TY = 9
 
 symbol_map = {
-    "tuw1": "Tile Shape UnderwaterWall rx ry tx ty 1",
-    "tud1": ["Tile Shape UnderwaterDoor rx ry tx ty 1", "Trigger None None rx ry tx ty 1"],
     "nbub": ["NPC Shape Bubble rx ry tx ty 1"],
+    
+    "plr1": "Player Animation Fish rx ry tx ty 48 48 5",
+    "tuw1": "Tile Animation GreenRock rx ry tx ty 1",
+    "tud1": ["Tile Animation GreyRock rx ry tx ty 1"],
+    "tcrl": "Tile Animation Coral rx ry tx ty 1",
+    "nffd": ["NPC Animation FishFood rx ry tx ty 1 1 0"],
 
-    "tcw1": "Tile Shape CityWall rx ry tx ty 1",
-    "tcd1": ["Tile Shape CityDoor rx ry tx ty 1", "Trigger None None rx ry tx ty 1"],
+    "plr2": "Player Animation Toad rx ry tx ty 48 54 5",
+    "tcw1": "Tile Animation BrownBrick rx ry tx ty 1",
+    "tcd1": ["Tile Animation RedTreeEyes rx ry tx ty 1"],
+    "tcg1": "Tile Animation Asphalt rx ry tx ty 0",
+    "ncar": ["NPC Animation Car rx ry tx ty 1 0 1"],
+    "nmny": ["NPC Animation Coin rx ry tx ty 1 1 0"],
 
-    "tsw1": "Tile Shape SnowWall rx ry tx ty 1",
-    "tsd1": ["Tile Shape SnowDoor rx ry tx ty 1", "Trigger None None rx ry tx ty 1"],
+    "plr3": "Player Animation Santa rx ry tx ty 48 48 5",
+    "tsw1": "Tile Animation Ice rx ry tx ty 1",
+    "tsd1": ["Tile Animation BlueBlock rx ry tx ty 1"],
+    "nsnw": ["NPC Animation Snowman rx ry tx ty 1 1 1"],
+    "ngft": ["NPC Animation Gift rx ry tx ty 1 1 0"],
 
-    "plr1": "Player rx ry tx ty 48 48 5",
-    "plr2": "Player rx ry tx ty 48 48 8",
-
-    "trg2": "Trigger Shape TriggerPurple rx ry tx ty 2",
+    "trg2": "Trigger None None rx ry tx ty 2",
     "trg3": "Trigger Shape TriggerPurple rx ry tx ty 3",
     "trg4": "Trigger Shape TriggerPurple rx ry tx ty 4",
     "trg5": "Trigger Shape TriggerPurple rx ry tx ty 5",
@@ -31,35 +39,29 @@ DefaultBG royalblue
 
 Room 0 0
 tuw1 tuw1 tuw1 tuw1 tuw1 tuw1 tuw1 tuw1 tuw1
-tuw1 plr1 .... .... .... .... .... .... tuw1
-tuw1 .... nbub trg3 tuw1 trg4 .... .... tuw1
-tuw1 .... nbub .... tuw1 nbub .... .... tuw1
-tuw1 .... tuw1 nbub trg5 .... nbub .... tuw1
-tuw1 .... .... tuw1 tuw1 tuw1 nbub .... tuw1
-tuw1 .... .... nbub trg6 nbub .... .... tuw1
 tuw1 .... .... .... .... .... .... .... tuw1
+tuw1 .... .... .... .... nffd .... .... tuw1
+tuw1 .... .... nffd .... tcrl .... .... tuw1
+tuw1 .... .... tcrl .... tcrl .... nffd tuw1
+tuw1 .... .... tcrl .... tcrl .... tuw1 tuw1
+tuw1 .... nffd tuw1 .... tcrl tuw1 tuw1 tuw1
+tuw1 plr1 tuw1 tuw1 .... tuw1 tuw1 tuw1 tuw1
 tuw1 tuw1 tuw1 tuw1 tud1 tuw1 tuw1 tuw1 tuw1
-
-Room 0 1
-.... .... .... .... trg2 .... .... .... ....
 """])
 
 levels.append([2, """
-DefaultBG dimgrey
+DefaultBG darkgreen
 
 Room 0 0
 tcw1 tcw1 tcw1 tcw1 tcw1 tcw1 tcw1 tcw1 tcw1
-tcw1 plr2 .... .... .... .... .... .... tcw1
-tcw1 .... .... .... trg3 .... .... .... tcw1
-tcw1 .... .... .... .... .... .... .... tcw1
-tcw1 .... .... .... trg4 .... .... .... tcw1
-tcw1 .... .... .... .... .... .... .... tcw1
-tcw1 .... .... .... .... .... .... .... tcw1
-tcw1 .... .... .... .... .... .... .... tcw1
-tcw1 tcw1 tcw1 tcw1 tcd1 tcw1 tcw1 tcw1 tcw1
-
-Room 0 1
-.... .... .... .... trg2 .... .... .... ....
+tcw1 nmny .... tcg1 tcg1 .... .... nmny tcw1
+tcw1 .... nmny tcg1 tcg1 .... .... .... tcw1
+tcw1 nmny ncar tcg1 tcg1 .... ncar .... tcd1
+tcw1 .... .... tcg1 tcg1 .... .... .... tcw1
+tcw1 nmny .... tcg1 tcg1 ncar .... .... tcw1
+tcw1 .... nmny tcg1 tcg1 .... .... .... tcw1
+tcw1 nmny .... tcg1 tcg1 .... .... plr2 tcw1
+tcw1 tcw1 tcw1 tcw1 tcw1 tcw1 tcw1 tcw1 tcw1
 """])
 
 levels.append([3, """
@@ -67,17 +69,14 @@ DefaultBG white
 
 Room 0 0
 tsw1 tsw1 tsw1 tsw1 tsw1 tsw1 tsw1 tsw1 tsw1
-tsw1 plr1 .... .... .... .... .... .... tsw1
+tsw1 .... .... .... .... .... .... plr3 tsw1
 tsw1 .... .... .... .... .... .... .... tsw1
-tsw1 .... .... .... .... .... .... .... tsw1
-tsw1 .... .... .... .... .... .... .... tsw1
-tsw1 .... trg3 .... .... .... trg4 .... tsw1
-tsw1 .... .... .... .... .... .... .... tsw1
-tsw1 .... .... .... .... .... .... .... tsw1
-tsw1 tsw1 tsw1 tsw1 tsd1 tsw1 tsw1 tsw1 tsw1
-
-Room 0 1
-.... .... .... .... trg2 .... .... .... ....
+tsw1 nsnw nsnw nsnw nsnw nsnw .... .... tsw1
+tsw1 nsnw ngft ngft ngft nsnw .... .... tsw1
+tsw1 nsnw ngft ngft ngft nsnw .... .... tsw1
+tsw1 nsnw ngft ngft ngft nsnw .... .... tsw1
+tsw1 nsnw nsnw nsnw nsnw nsnw .... .... tsw1
+tsw1 tsw1 tsd1 tsw1 tsw1 tsw1 tsw1 tsw1 tsw1
 """])
 
 for [levelNumber, level] in levels:
