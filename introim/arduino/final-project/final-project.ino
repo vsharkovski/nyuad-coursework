@@ -1,16 +1,38 @@
+#include <Servo.h>
+
 // Pins.
 const int trig1Pin = 4;
 const int echo1Pin = 3;
 const int trig2Pin = 5;
 const int echo2Pin = 6;
+const int servoPin = 9;
+const int speakerPin = 11;
 
+// Variables.
+float X, Y; // X and Y reported from distance sensors.
+
+int speakerFrequency = 0;
+
+const unsigned long speakerTimeoutMillis = 100;
+unsigned long lastSpeakerFrequencyChangeMillis = 0;
+
+Servo servo; // Servo object for controlling the motor.
+int servoPosition = 0; // Variable for servo position.
+
+const int totalServoIterations = 4;
+int servoIteration = totalServoIterations;
+
+const unsigned long servoDelayMillis = 200;
+unsigned long lastServoMoveMillis = 0;
+
+// Functions.
 void setupP5();
 void communicateP5();
 void trackPosition();
 float getSensorResult(int, int);
 float mapFloat(float, float);
-
-float X, Y;
+void rotateServoIfNeeded();
+void updateSpeakerToneIfNeeded();
 
 void setup() {
   Serial.begin(9600);
@@ -20,14 +42,12 @@ void setup() {
   pinMode(trig2Pin, OUTPUT);
   pinMode(echo1Pin, INPUT);
   pinMode(echo2Pin, INPUT);
+  servo.attach(servoPin);
 
   setupP5();
 }
 
 void loop() {
-  // Serial.print(X);
-  // Serial.print("\t");
-  // Serial.println(Y);
   communicateP5();
 }
 
@@ -47,14 +67,54 @@ void communicateP5() {
   while (Serial.available()) {
     digitalWrite(LED_BUILTIN, HIGH); // Led on while receiving data.
 
-    int x = Serial.parseInt();
+    unsigned long currentMillis = millis();
 
-    if (Serial.read() == '\n') {
+    bool goodSignal = true;
+    int operation = Serial.parseInt();
+  
+    if (operation == 1) {
+
+    } else if (operation == 2) {
+      servoIteration = 0;
+    } else if (operation == 3) {
+      Serial.read(); // ,
+      speakerFrequency = Serial.parseInt();
+      lastSpeakerFrequencyChangeMillis = currentMillis;
+    } else {
+      goodSignal = false;
+    }
+
+    Serial.read(); // \n
+
+    if (goodSignal) {
+      rotateServoIfNeeded();
+      updateSpeakerToneIfNeeded();
+
       trackPosition();
       Serial.print(X);
       Serial.print(",");
-      Serial.println(Y);
+      Serial.print(Y);
+
+      // Debug stuff.
+      // Serial.print(",");
+      // Serial.print(operation);
+      // Serial.print(",");
+      // Serial.print(speakerFrequency);
+      // Serial.print(",");
+      // Serial.print(lastSpeakerFrequencyChangeMillis);
+      // Serial.print(",");
+      // Serial.print(servoIteration);
+      // Serial.print(",");
+      // Serial.print(servoPosition);
+      // Serial.print(",");
+      // Serial.print(lastServoMoveMillis);
+
+      Serial.println();
       delay(100);
+    } else {
+      servoIteration = totalServoIterations;
+      speakerFrequency = 0;
+      Serial.println("-1,-1");
     }
   }
 
@@ -71,47 +131,8 @@ void trackPosition() {
   d1 = constrain(d1, 10, 150);
   d2 = constrain(d2, 10, 150);
 
-  // Serial.print(d1);
-  // Serial.print("\t");
-  // Serial.println(d2);
-
-  // X = d1;
-  // Y = d2;
-
   X = mapFloat01((float)d1, 10.0f, 150.0f);
   Y = mapFloat01((float)d2, 10.0f, 150.0f);
-}
-
-void trackPosition2() {
-  float d1, d2, theta;
-
-  float dist = 70.0f; // Between sensors
-
-  d1 = getSensorResult(trig1Pin, echo1Pin);
-  delay(30);
-  d2 = getSensorResult(trig2Pin, echo2Pin);
-
-  theta = acos((((d1*d1)+(dist*dist)-(d2*d2)))/(2.0f*d1*dist));
-  if (theta > 0.0f && theta < 3.0f) {
-    X = d1 * cos(theta) + dist * 0.5f;
-    Y = d1 * sin(theta);
-
-    
-    X = constrain(X, -1000, 1000);
-    Y = constrain(Y, 0, 1000);
-
-    Serial.print(X);
-    Serial.print("\t");
-    Serial.println(Y);
-  } else {
-
-  }
-
-  // Serial.print(d1);
-  // Serial.print("\t");
-  // Serial.println(d2);
-
-  delay(200);
 }
 
 float getSensorResult(int trigPin, int echoPin) {
@@ -133,4 +154,36 @@ float getSensorResult(int trigPin, int echoPin) {
 
 float mapFloat01(float x, float minX, float maxX) {
   return (x - minX) / (maxX - minX);
+}
+
+void rotateServoIfNeeded() {
+  unsigned long currentMillis = millis();
+
+  if (servoIteration < totalServoIterations && lastServoMoveMillis + servoDelayMillis < currentMillis) {
+    // Time to switch the servo motor position.
+    if (servoPosition == 60) {
+      servoPosition = 120;
+      servo.write(120);
+    } else {
+      servoPosition = 60;
+      servo.write(60);
+    }
+    servoIteration++;
+    lastServoMoveMillis = currentMillis;  
+  }
+}
+
+void updateSpeakerToneIfNeeded() {
+  unsigned long currentMillis = millis();
+
+  if (lastSpeakerFrequencyChangeMillis + speakerTimeoutMillis < currentMillis) {
+    // Speaker was played long enough ago that we should stop it.
+    speakerFrequency = 0;
+  }
+
+  if (speakerFrequency <= 0) {
+    noTone(speakerPin);
+  } else {
+    tone(speakerPin, speakerFrequency);
+  }
 }
