@@ -1,16 +1,31 @@
+#include <Servo.h>
+
 // Pins.
 const int trig1Pin = 4;
 const int echo1Pin = 3;
 const int trig2Pin = 5;
 const int echo2Pin = 6;
+const int servoPin = 9;
+const int speakerPin = 11;
 
+// Variables.
+float X, Y; // X and Y reported from distance sensors.
+
+// int speakerVolume;
+int speakerFrequency = 0;
+
+Servo servo; // Servo object for controlling the motor.
+int servoPosition = 0; // Variable for servo position.
+
+const int totalServoIterations = 20;
+int servoIteration = totalServoIterations;
+
+// Functions.
 void setupP5();
 void communicateP5();
 void trackPosition();
 float getSensorResult(int, int);
 float mapFloat(float, float);
-
-float X, Y;
 
 void setup() {
   Serial.begin(9600);
@@ -20,6 +35,7 @@ void setup() {
   pinMode(trig2Pin, OUTPUT);
   pinMode(echo1Pin, INPUT);
   pinMode(echo2Pin, INPUT);
+  servo.attach(servoPin);
 
   setupP5();
 }
@@ -29,6 +45,24 @@ void loop() {
   // Serial.print("\t");
   // Serial.println(Y);
   communicateP5();
+
+  if (servoIteration < totalServoIterations) {
+    if (servoPosition == 60) {
+      servoPosition = 120;
+      servo.write(120);
+    } else {
+      servoPosition = 60;
+      servo.write(60);
+    }
+    delay(20);
+    servoIteration++;
+  }
+
+  if (speakerFrequency <= 0) {
+    noTone(speakerPin);
+  } else {
+    tone(speakerPin, speakerFrequency);
+  }
 }
 
 void setupP5() {
@@ -47,14 +81,31 @@ void communicateP5() {
   while (Serial.available()) {
     digitalWrite(LED_BUILTIN, HIGH); // Led on while receiving data.
 
-    int x = Serial.parseInt();
+    unsigned long currentMillis = millis();
 
-    if (Serial.read() == '\n') {
+    bool goodSignal = true;
+    int operation = Serial.parseInt();
+  
+    if (operation == 1) {
+
+    } else if (operation == 2) {
+      servoIteration = 0;
+    } else if (operation == 3) {
+      Serial.read();
+      speakerFrequency = Serial.parseInt();
+    } else {
+      goodSignal = false;
+    }
+
+    if (goodSignal) {
       trackPosition();
       Serial.print(X);
       Serial.print(",");
       Serial.println(Y);
       delay(100);
+    } else {
+      servoIteration = totalServoIterations;
+      speakerFrequency = 0;
     }
   }
 
