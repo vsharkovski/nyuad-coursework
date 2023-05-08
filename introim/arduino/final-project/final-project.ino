@@ -31,7 +31,8 @@ void communicateP5();
 void trackPosition();
 float getSensorResult(int, int);
 float mapFloat(float, float);
-void doServoAndSpeakerStuff();
+void rotateServoIfNeeded();
+void updateSpeakerToneIfNeeded();
 
 void setup() {
   Serial.begin(9600);
@@ -47,38 +48,7 @@ void setup() {
 }
 
 void loop() {
-  // Serial.print(X);
-  // Serial.print("\t");
-  // Serial.println(Y);
   communicateP5();
-}
-
-void doServoAndSpeakerStuff() {
-  unsigned long currentMillis = millis();
-
-  if (servoIteration < totalServoIterations && lastServoMoveMillis + servoDelayMillis < currentMillis) {
-    // Time to switch the servo motor position.
-    if (servoPosition == 60) {
-      servoPosition = 120;
-      servo.write(120);
-    } else {
-      servoPosition = 60;
-      servo.write(60);
-    }
-    servoIteration++;
-    lastServoMoveMillis = currentMillis;  
-  }
-
-  if (lastSpeakerFrequencyChangeMillis + speakerTimeoutMillis < currentMillis) {
-    // Speaker was played long enough ago that we should stop it.
-    speakerFrequency = 0;
-  }
-
-  if (speakerFrequency <= 0) {
-    noTone(speakerPin);
-  } else {
-    tone(speakerPin, speakerFrequency);
-  }
 }
 
 void setupP5() {
@@ -117,13 +87,15 @@ void communicateP5() {
     Serial.read(); // \n
 
     if (goodSignal) {
-      doServoAndSpeakerStuff();
+      rotateServoIfNeeded();
+      updateSpeakerToneIfNeeded();
 
       trackPosition();
       Serial.print(X);
       Serial.print(",");
       Serial.print(Y);
 
+      // Debug stuff.
       // Serial.print(",");
       // Serial.print(operation);
       // Serial.print(",");
@@ -159,13 +131,6 @@ void trackPosition() {
   d1 = constrain(d1, 10, 150);
   d2 = constrain(d2, 10, 150);
 
-  // Serial.print(d1);
-  // Serial.print("\t");
-  // Serial.println(d2);
-
-  // X = d1;
-  // Y = d2;
-
   X = mapFloat01((float)d1, 10.0f, 150.0f);
   Y = mapFloat01((float)d2, 10.0f, 150.0f);
 }
@@ -189,4 +154,36 @@ float getSensorResult(int trigPin, int echoPin) {
 
 float mapFloat01(float x, float minX, float maxX) {
   return (x - minX) / (maxX - minX);
+}
+
+void rotateServoIfNeeded() {
+  unsigned long currentMillis = millis();
+
+  if (servoIteration < totalServoIterations && lastServoMoveMillis + servoDelayMillis < currentMillis) {
+    // Time to switch the servo motor position.
+    if (servoPosition == 60) {
+      servoPosition = 120;
+      servo.write(120);
+    } else {
+      servoPosition = 60;
+      servo.write(60);
+    }
+    servoIteration++;
+    lastServoMoveMillis = currentMillis;  
+  }
+}
+
+void updateSpeakerToneIfNeeded() {
+  unsigned long currentMillis = millis();
+
+  if (lastSpeakerFrequencyChangeMillis + speakerTimeoutMillis < currentMillis) {
+    // Speaker was played long enough ago that we should stop it.
+    speakerFrequency = 0;
+  }
+
+  if (speakerFrequency <= 0) {
+    noTone(speakerPin);
+  } else {
+    tone(speakerPin, speakerFrequency);
+  }
 }
