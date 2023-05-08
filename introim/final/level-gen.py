@@ -22,10 +22,10 @@ symbol_map = {
     "plr3": "Player Animation Santa rx ry tx ty 48 48 5",
     "tsw1": "Tile Animation Ice rx ry tx ty 1",
     "tsd1": ["Tile Animation BlueBlock rx ry tx ty 1"],
-    "nsm1": ["NPC Animation Snowman rx ry tx ty 1 1 1"],
+    "nsm1": ["NPC Animation Snowman rx ry tx ty 1 0 1"],
     "ngft": ["NPC Animation Gift rx ry tx ty 1 1 0"],
 
-    "nsm2": ["NPC Animation Snowman rx ry tx ty 1 0 1", "AI Follow 1"],
+    "nsm2": ["NPC Animation Snowman rx ry tx ty 1 1 1", "AI Follow 1"],
     "nmn2": ["NPC Animation Coin rx ry tx ty 1 1 0", "AI Random 2"],
 
     "trg2": "Trigger None None rx ry tx ty 2",
@@ -57,11 +57,11 @@ Room 0 1
 tuw1 tuw1 tuw1 tuw1 .... tuw1 tuw1 tuw1 tuw1
 tuw1 .... .... .... .... .... .... .... tuw1
 tuw1 .... .... tcrl tcrl tcrl .... .... tuw1
-tuw1 .... tcrl tcrl .... tcrl nff2 .... tuw1
+tuw1 .... tcrl tcrl .... tcrl .... .... tuw1
 tuw1 .... tcrl .... .... tcrl tcrl .... tuw1
-tuw1 .... tcrl .... .... nff2 tcrl .... tuw1
-tuw1 .... tcrl .... .... .... .... .... tuw1
 tuw1 .... tcrl .... .... .... tcrl .... tuw1
+tuw1 .... tcrl .... .... .... tcrl .... tuw1
+tuw1 .... tcrl .... .... .... .... .... tuw1
 tuw1 tuw1 tuw1 tuw1 .... tuw1 tuw1 tuw1 tuw1
 """])
 
@@ -71,20 +71,20 @@ DefaultBG darkgreen
 Room 0 0
 tcw1 tcw1 tcw1 tcw1 tcw1 tcw1 tcw1 tcw1 tcw1
 tcw1 nmn1 .... tcg1 tcg1 .... .... nmn1 tcw1
-tcw1 .... nmn1 tcg1 tcg1 .... .... .... tcw1
-tcw1 nmn1 ncr3 tcg1 tcg1 .... ncr3 .... tcd1
 tcw1 .... .... tcg1 tcg1 .... .... .... tcw1
+tcw1 nmn1 ncr3 tcg1 tcg1 .... ncr3 .... tcd1
+tcw1 .... .... tcg1 tcg1 .... .... .... tcd1
 tcw1 nmn1 .... tcg1 tcg1 ncr3 .... .... tcw1
-tcw1 .... nmn1 tcg1 tcg1 .... tcw1 .... tcw1
+tcw1 .... .... tcg1 tcg1 .... tcw1 .... tcw1
 tcw1 nmn1 .... tcg1 tcg1 .... tcw1 plr2 tcw1
 tcw1 tcw1 tcw1 tcw1 tcw1 tcw1 tcw1 tcw1 tcw1
 
 Room 1 0
 tcw1 tcw1 tcw1 tcw1 tcw1 tcw1 tcw1 tcw1 tcw1
-tcw1 .... tcw1 .... ncr1 .... ncr1 .... tcw1
+tcw1 .... tcd1 .... ncr1 .... ncr1 .... tcw1
 tcw1 .... tcd1 .... .... .... .... .... tcw1
 .... .... tcw1 .... .... .... .... .... tcw1
-tcw1 .... tcw1 .... .... .... .... .... tcw1
+.... .... tcw1 .... .... .... .... .... tcw1
 tcw1 .... tcw1 .... .... .... .... .... tcw1
 tcw1 .... tcw1 .... .... .... .... .... ....
 tcw1 .... tcw1 .... ncr1 .... ncr1 .... tcw1
@@ -98,12 +98,12 @@ Room 0 0
 tsw1 tsw1 tsw1 tsw1 tsw1 tsw1 tsw1 tsw1 tsw1
 tsw1 .... .... .... .... .... .... plr3 tsw1
 tsw1 .... .... .... .... .... .... .... tsw1
-tsw1 nsm1 .... nsm1 .... nsm1 .... .... tsw1
+tsw1 nsm1 .... .... .... nsm1 .... .... tsw1
 tsw1 .... ngft ngft ngft .... .... .... tsw1
-tsw1 .... ngft ngft ngft nsm1 .... .... tsw1
-tsw1 .... ngft ngft ngft .... .... .... tsw1
-tsw1 nsm1 .... nsm1 .... nsm1 .... .... tsw1
-tsw1 tsw1 tsd1 tsw1 tsw1 tsw1 tsw1 tsw1 tsw1
+tsw1 .... ngft ngft ngft .... .... .... tsd1
+tsw1 .... ngft ngft ngft .... .... .... tsd1
+tsw1 nsm1 .... .... .... nsm1 .... .... tsw1
+tsw1 tsw1 tsw1 tsw1 tsw1 tsw1 tsw1 tsw1 tsw1
 """])
 
 levels.append([4, """
@@ -126,7 +126,7 @@ DefaultBG white
 
 Room 0 0
 
-tsw1 tsw1 tsw1 tsw1 tsd1 tsw1 tsw1 tsw1 tsw1
+tsw1 tsw1 tsw1 tsw1 tsd1 tsd1 tsw1 tsw1 tsw1
 tsw1 plr3 .... .... .... .... .... .... tsw1
 tsw1 .... .... .... .... .... .... .... tsw1
 tsw1 .... .... nmn2 nmn2 nmn2 .... .... tsw1
@@ -134,7 +134,7 @@ tsw1 .... .... nmn2 ngft nmn2 .... .... tsw1
 tsw1 .... .... nmn2 ngft nmn2 .... .... tsw1
 tsw1 .... .... nmn2 nmn2 nmn2 .... .... tsw1
 tsw1 .... nsm2 .... .... .... nsm2 .... tsw1
-tsw1 tsw1 tsw1 tsw1 tsd1 tsw1 tsw1 tsw1 tsw1
+tsw1 tsw1 tsw1 tsw1 tsw1 tsw1 tsw1 tsw1 tsw1
 """])
 
 levels.append([6, """
@@ -142,13 +142,13 @@ DefaultBG darkgreen
 
 Room 0 0
 tcw1 tcw1 tcw1 tcw1 tcw1 tcw1 tcw1 tcw1 tcw1
-tcw1 nff1 tcw1 nsm1 .... tcw1 nmn2 nmn2 tcw1
-tcw1 .... tcw1 tcw1 .... .... nmn2 nmn2 tcw1
+tcw1 nff1 tcw1 nsm2 .... .... nmn2 nmn2 tcw1
+tcw1 .... .... .... .... .... nmn2 nmn2 tcw1
 tcw1 .... .... .... .... tcw1 tcw1 tcw1 tcw1
 tcw1 .... tcw1 nff1 .... .... .... .... tcw1
-tcw1 .... tcw1 tcw1 .... tcw1 ngft .... nsm1
-tcw1 .... tcw1 nff1 .... tcw1 tcw1 .... ....
-tcw1 plr2 tcw1 tcw1 .... .... .... .... tcw1
+tcw1 .... tcw1 .... .... tcw1 ngft .... nsm2
+tcw1 .... tcw1 nff1 .... tcw1 .... .... ....
+tcw1 plr2 tcw1 .... .... .... .... .... tcw1
 tcw1 tcw1 tcw1 tcw1 tcw1 tcw1 tcw1 tcw1 tcw1
 
 Room 1 0

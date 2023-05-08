@@ -11,14 +11,19 @@ const int speakerPin = 11;
 // Variables.
 float X, Y; // X and Y reported from distance sensors.
 
-// int speakerVolume;
 int speakerFrequency = 0;
+
+const unsigned long speakerTimeoutMillis = 100;
+unsigned long lastSpeakerFrequencyChangeMillis = 0;
 
 Servo servo; // Servo object for controlling the motor.
 int servoPosition = 0; // Variable for servo position.
 
-const int totalServoIterations = 20;
+const int totalServoIterations = 4;
 int servoIteration = totalServoIterations;
+
+const unsigned long servoDelayMillis = 200;
+unsigned long lastServoMoveMillis = 0;
 
 // Functions.
 void setupP5();
@@ -26,6 +31,7 @@ void communicateP5();
 void trackPosition();
 float getSensorResult(int, int);
 float mapFloat(float, float);
+void doServoAndSpeakerStuff();
 
 void setup() {
   Serial.begin(9600);
@@ -45,8 +51,13 @@ void loop() {
   // Serial.print("\t");
   // Serial.println(Y);
   communicateP5();
+}
 
-  if (servoIteration < totalServoIterations) {
+void doServoAndSpeakerStuff() {
+  unsigned long currentMillis = millis();
+
+  if (servoIteration < totalServoIterations && lastServoMoveMillis + servoDelayMillis < currentMillis) {
+    // Time to switch the servo motor position.
     if (servoPosition == 60) {
       servoPosition = 120;
       servo.write(120);
@@ -54,8 +65,13 @@ void loop() {
       servoPosition = 60;
       servo.write(60);
     }
-    delay(20);
     servoIteration++;
+    lastServoMoveMillis = currentMillis;  
+  }
+
+  if (lastSpeakerFrequencyChangeMillis + speakerTimeoutMillis < currentMillis) {
+    // Speaker was played long enough ago that we should stop it.
+    speakerFrequency = 0;
   }
 
   if (speakerFrequency <= 0) {
@@ -91,21 +107,42 @@ void communicateP5() {
     } else if (operation == 2) {
       servoIteration = 0;
     } else if (operation == 3) {
-      Serial.read();
+      Serial.read(); // ,
       speakerFrequency = Serial.parseInt();
+      lastSpeakerFrequencyChangeMillis = currentMillis;
     } else {
       goodSignal = false;
     }
 
+    Serial.read(); // \n
+
     if (goodSignal) {
+      doServoAndSpeakerStuff();
+
       trackPosition();
       Serial.print(X);
       Serial.print(",");
-      Serial.println(Y);
+      Serial.print(Y);
+
+      // Serial.print(",");
+      // Serial.print(operation);
+      // Serial.print(",");
+      // Serial.print(speakerFrequency);
+      // Serial.print(",");
+      // Serial.print(lastSpeakerFrequencyChangeMillis);
+      // Serial.print(",");
+      // Serial.print(servoIteration);
+      // Serial.print(",");
+      // Serial.print(servoPosition);
+      // Serial.print(",");
+      // Serial.print(lastServoMoveMillis);
+
+      Serial.println();
       delay(100);
     } else {
       servoIteration = totalServoIterations;
       speakerFrequency = 0;
+      Serial.println("-1,-1");
     }
   }
 
@@ -131,38 +168,6 @@ void trackPosition() {
 
   X = mapFloat01((float)d1, 10.0f, 150.0f);
   Y = mapFloat01((float)d2, 10.0f, 150.0f);
-}
-
-void trackPosition2() {
-  float d1, d2, theta;
-
-  float dist = 70.0f; // Between sensors
-
-  d1 = getSensorResult(trig1Pin, echo1Pin);
-  delay(30);
-  d2 = getSensorResult(trig2Pin, echo2Pin);
-
-  theta = acos((((d1*d1)+(dist*dist)-(d2*d2)))/(2.0f*d1*dist));
-  if (theta > 0.0f && theta < 3.0f) {
-    X = d1 * cos(theta) + dist * 0.5f;
-    Y = d1 * sin(theta);
-
-    
-    X = constrain(X, -1000, 1000);
-    Y = constrain(Y, 0, 1000);
-
-    Serial.print(X);
-    Serial.print("\t");
-    Serial.println(Y);
-  } else {
-
-  }
-
-  // Serial.print(d1);
-  // Serial.print("\t");
-  // Serial.println(d2);
-
-  delay(200);
 }
 
 float getSensorResult(int trigPin, int echoPin) {
